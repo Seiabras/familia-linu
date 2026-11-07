@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- A imagem de compartilhar da Família Linu (1200 × 630): o álbum com os quatro irmãos. Gerar de novo:
+     node ferramentas/compartilhar/gerar.mjs -->
+<html lang="pt-BR" data-theme="light"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../css/estilo.css">
+<style>
+  html, body { margin: 0; }
+  body { width: 1200px; height: 630px; overflow: hidden; box-sizing: border-box; padding: 64px 70px; background: #1F2A44; color: #FFFFFF; display: grid; grid-template-columns: 1fr 560px; gap: 40px; align-items: center; border-bottom: 14px solid #2563EB; }
+  h1 { font-size: 92px; line-height: .95; margin: 0; font-weight: 900; }
+  h1 b { color: #93C5FD; }
+  .frase { font-size: 34px; line-height: 1.25; margin: 26px 0 0; color: #E2E8F0; }
+  .pe { font-size: 24px; color: #93C5FD; margin: 36px 0 0; font-weight: 800; }
+  .album { grid-template-columns: repeat(2, 1fr); gap: 26px 22px; }
+  .foto { padding: 9px 9px 12px; }
+  .foto .botao, .foto-legenda p { display: none; }
+  .foto-legenda { padding-top: 8px; }
+  .foto-legenda h3 { font-size: 22px; }
+</style></head><body>
+  <div>
+    <h1><b>Família</b> Linu</h1>
+    <p class="frase">O site, as redes e a segurança do seu negócio, da mesma família.</p>
+    <p class="pe">familia.linupedia.com.br</p>
+  </div>
+  <ol class="album">
+    <li class="foto"><div class="foto-cena cena-sites"><img class="pixel dia" src="../../img/abrigo-estacao-dia.png" alt=""></div><div class="foto-legenda"><h3>Linu Sites</h3></div></li>
+    <li class="foto"><div class="foto-cena cena-digital"><span class="cena-rec">REC</span><img class="pixel" src="../../img/linu-frente.png" alt=""></div><div class="foto-legenda"><h3>Digital Linu</h3></div></li>
+    <li class="foto"><div class="foto-cena cena-seguro"><img class="pixel iglu" src="../../img/iglu.png" alt=""><img class="pixel linu" src="../../img/linu-frente.png" alt=""></div><div class="foto-legenda"><h3>Linu Seguro</h3></div></li>
+    <li class="foto"><div class="foto-cena cena-pedia"><img class="pixel" src="../../img/linu-frente.png" alt=""></div><div class="foto-legenda"><h3>LinuPedia</h3></div></li>
+  </ol>
+</body></html>
