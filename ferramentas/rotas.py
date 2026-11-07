@@ -18,8 +18,9 @@ FONTES = {  # onde mora o preço de cada irmão: o repositório e o arquivo
     'sites': ('linu-sites', 'ferramentas/pagina/precos.json'),
     'digital': ('digital-linu', 'precos.json'),
     'seguro': ('linu-seguro', 'precos.json'),
+    'farol': ('linu-farol', 'precos.json'),
 }
-NOMES = {'sites': 'Linu Sites', 'digital': 'Digital Linu', 'seguro': 'Linu Seguro'}
+NOMES = {'sites': 'Linu Sites', 'digital': 'Digital Linu', 'seguro': 'Linu Seguro', 'farol': 'Linu Farol'}
 ILHA = {'sites': ('ilha-sites-p.png', 66, 41), 'digital': ('ilha-digital-p.png', 58, 35), 'seguro': ('ilha-seguro-p.png', 61, 37)}
 
 
@@ -89,10 +90,14 @@ def main():
     # fora para não comparar coisas diferentes
     menor = {'sites': precos['sites']['apresentacao']['valor'],
              'digital': min(p['valor'] for p in precos['digital'].values() if p['tipo'] == 'unico'),
-             'seguro': min(p['valor'] for p in precos['seguro'].values() if p['tipo'] == 'unico')}
-    rotulo = {'sites': 'Site a partir de', 'digital': 'Serviços a partir de', 'seguro': 'Serviços a partir de'}
+             'seguro': min(p['valor'] for p in precos['seguro'].values() if p['tipo'] == 'unico'),
+             # o farol é mensal por natureza: o menor plano mensal
+             'farol': min(p['valor'] for p in precos['farol'].values() if p['tipo'] == 'mensal')}
+    rotulo = {'sites': 'Site a partir de', 'digital': 'Serviços a partir de', 'seguro': 'Serviços a partir de',
+              'farol': 'Painel a partir de'}
+    sufixo = {'farol': ' por mês'}
     depois = re.sub(r'(<p class="ilha-preco" data-irmao="(\w+)">).*?(</p>)',
-                    lambda m: m.group(1) + f'{rotulo[m.group(2)]} {brl(menor[m.group(2)])}' + m.group(3), depois)
+                    lambda m: m.group(1) + f'{rotulo[m.group(2)]} {brl(menor[m.group(2)])}{sufixo.get(m.group(2), "")}' + m.group(3), depois)
     if '--conferir' in sys.argv:
         # a versão dos arquivos (?v=, do versao-arquivos.py) não conta na comparação
         sem_v = lambda s: re.sub(r'\?v=[0-9a-f]{8}', '', s)

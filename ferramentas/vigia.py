@@ -15,6 +15,7 @@ SITES = [
     ('Linu Sites', 'https://sites.linupedia.com.br/', 'Linu Sites'),
     ('Digital Linu', 'https://digital.linupedia.com.br/', 'Digital Linu'),
     ('Linu Seguro', 'https://seguro.linupedia.com.br/', 'Linu Seguro'),
+    ('Linu Farol', 'https://farol.linupedia.com.br/', 'Linu Farol'),
     ('LinuPedia', 'https://linupedia.com.br/', 'LinuPedia'),
 ]
 # O Caddyfile usa o perfil “shortlived” da Let's Encrypt para todos os sites (certificado de 6 dias, renovado sozinho
