@@ -47,6 +47,11 @@ o GitHub Actions entrega o site na VM da Oracle e o Caddy serve o subdomínio (d
   das rotas e os “a partir de” da legenda. O Actions roda antes de cada publicação, com os preços atuais do GitHub, e
   publica de novo todo dia às 6h, então um preço mudado num irmão chega aqui no mesmo dia. No computador:
   `python3 ferramentas/rotas.py --local` (com os repositórios irmãos ao lado).
+- **Três versões (07/11/2026):** no celular, a **placa de baixo** (presa ao alcance do polegar) tem o Menu, com a rosa
+  dos ventos e o nome da parte da carta que está na tela, e o “Falar com o Linu”; o menu sobe de baixo, numa placa, e a
+  placa some quando o contato aparece (`js/familia.js`, bloco 3). As ilhas e as rotas correm de lado, uma placa por vez
+  (`scroll-snap`). No tablet, a legenda e as rotas em 2 colunas, e o que sobra (a LinuPedia, a rota Tudo junto) deita
+  na largura toda. No computador, o mapa em 3×, os casos em 4 colunas e as rotas em 3.
 - **Irmão novo:** ocupa uma ilha vaga: pedir à API a ilha com a casa dele a partir do `img/mapa-*` atual (de dia e de
   noite), levar para a grade, e trocar a placa “Ilha vaga” pelo nome e o link.
 

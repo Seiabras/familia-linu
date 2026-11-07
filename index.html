@@ -23,10 +23,10 @@
   <link rel="preload" href="fontes/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <script src="js/tema-inicio.js?v=b2e4d710"></script>
   <link rel="stylesheet" href="css/fontes-pixel.css?v=5a3ab9f0">
-  <link rel="stylesheet" href="css/estilo.css?v=49b3a2fd">
+  <link rel="stylesheet" href="css/estilo.css?v=715736fe">
   <link rel="stylesheet" href="css/marcas.css?v=cd5d8400">
   <link rel="stylesheet" href="css/movimento.css?v=6c3684a3">
-  <script src="js/familia.js?v=55d5ccba" defer></script>
+  <script src="js/familia.js?v=83feeebc" defer></script>
   <script src="js/linu-vivo.js?v=daf0f399" defer></script>
   <script src="js/mapa-linu.js?v=a520ba24" defer></script>
   <script src="js/movimento.js?v=c068d761" defer></script>
@@ -39,7 +39,7 @@
         <span>Família Linu</span>
       </a>
       <nav class="menu" aria-label="Seções">
-        <div class="menu-links">
+        <div class="menu-links" id="menu-links">
           <a href="#ilhas">As ilhas</a>
           <a href="#rotas">Rotas</a>
           <a href="identidade">Identidade</a>
@@ -58,7 +58,7 @@
   <main>
     <!-- O mapa das ilhas (07/11/2026): pixel art pela API de imagens (arte/), levada para a grade 384 × 216 (largo) e
          176 × 312 (alto) e mostrada só em 2× ou 3× exatos. Os nomes são HTML por cima (css/marcas.css). -->
-    <section class="abertura">
+    <section class="abertura" data-barra-titulo="O mapa">
       <div class="dentro">
         <h1>Um arquipélago, <span class="destaque">uma família</span></h1>
         <p class="abertura-sub">Cada irmão mora na sua ilha: o Linu Sites faz o site, o Digital Linu cuida das redes e dos anúncios,
@@ -99,6 +99,7 @@
       <div class="dentro">
         <h2 data-mov="palavras">As ilhas</h2>
         <p class="secao-sub" data-mov="sobe">A legenda do mapa. Cada ilha tem o seu endereço, a sua cor e a sua casa; o Linu é o mesmo em todas.</p>
+        <p class="faixa-dica" aria-hidden="true">Arraste para o lado: são 5 ilhas →</p>
         <ul class="ilhas" data-mov-grupo="sobe">
           <li class="ilha">
             <img class="pixel ilha-img" data-mov="cortina" src="img/ilha-sites.png?v=5ed943eb" alt="" width="264" height="164" loading="lazy">
@@ -169,6 +170,7 @@
         <h2 data-mov="palavras">Rotas da família</h2>
         <p class="secao-sub" data-mov="sobe">Os pacotes que passam por mais de uma ilha. Cada item mostra quem faz; os pacotes de uma ilha só ficam
           no site de cada irmão.</p>
+        <p class="faixa-dica" aria-hidden="true">Arraste para o lado: são 3 rotas →</p>
         <div class="rotas" data-mov-grupo="sobe">
           <article class="rota">
             <h3 class="rota-nome">Rota Abrir as portas</h3>
@@ -265,6 +267,17 @@
     </section>
   </main>
 
+  <!-- Celular (07/11/2026): a placa de baixo, ao alcance do polegar. O botão abre o menu (as seções, numa placa que
+       sobe de baixo) e mostra em que parte da carta a pessoa está; o outro leva à conversa. Some quando o contato
+       aparece. Sem JavaScript, fica escondida (js/familia.js, bloco 3). -->
+  <aside class="barra" data-barra aria-label="Atalhos" hidden>
+    <button class="barra-menu" type="button" aria-expanded="false" aria-controls="menu-links" data-menu>
+      <svg viewBox="0 0 16 16" width="32" height="32" aria-hidden="true"><path class="rosa-n" d="M7 1h2v2h1v4H6V3h1z"/><path class="rosa-s" d="M6 9h4v4H9v2H7v-2H6z"/><path class="rosa-l" d="M1 7h5v2H1zM10 7h5v2h-5z"/></svg>
+      <span><b>Menu</b><small data-barra-nome>O mapa</small></span>
+    </button>
+    <a class="botao" href="#contato">Falar com o Linu</a>
+  </aside>
+
   <footer class="rodape">
     <div class="dentro rodape-dentro">
       <p><b>Família Linu</b>: o Linu Sites, o Digital Linu, o Linu Seguro, o Linu Farol e a LinuPedia.</p>
@@ -272,6 +285,7 @@
         <a href="https://sites.linupedia.com.br/">Linu Sites</a>
         <a href="https://digital.linupedia.com.br/">Digital Linu</a>
         <a href="https://seguro.linupedia.com.br/">Linu Seguro</a>
+        <a href="https://farol.linupedia.com.br/">Linu Farol</a>
         <a href="https://linupedia.com.br/">LinuPedia</a>
         <a href="identidade">Identidade visual</a>
       </nav>

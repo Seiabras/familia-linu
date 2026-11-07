@@ -237,6 +237,36 @@ a.marca-ilha:hover { background: #FDE68A; transform: translate(-50%, calc(-50% -
 
 /* Entradas ao rolar: js/movimento.js e css/movimento.css (o kit do linuarquivos) */
 
+/* ===== Celular (até 699 px) ===== */
+/* A placa de baixo (07/11/2026): o menu, com o nome da parte da carta em que a pessoa está, e a conversa, ao alcance do
+   polegar. O menu sobe de baixo, como uma placa de legenda. */
+.barra { display: none; }
+@media (max-width: 699px) {
+  body { padding-bottom: 84px; }
+  .barra:not([hidden]) { position: fixed; left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom)); z-index: 19; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 6px 6px 6px 8px; background: var(--grafite); color: #FFFFFF; border: 3px solid #020617; box-shadow: 4px 4px 0 #020617; transition: transform .2s ease-in, opacity .2s ease-in; }
+  .barra.escondida { transform: translateY(calc(100% + 24px)); opacity: 0; pointer-events: none; }
+  .barra-menu { display: flex; align-items: center; gap: 8px; min-height: 48px; min-width: 0; padding: 0 10px 0 4px; border: 2px solid rgba(255, 255, 255, .35); background: transparent; color: #FFFFFF; font: inherit; text-align: left; cursor: pointer; }
+  .barra-menu svg { flex: none; image-rendering: pixelated; shape-rendering: crispEdges; }
+  .rosa-n { fill: #FCA5A5; } .rosa-s, .rosa-l { fill: #E2E8F0; }
+  .barra-menu[aria-expanded="true"] { background: rgba(255, 255, 255, .14); }
+  .barra-menu span { display: grid; min-width: 0; line-height: 1.15; }
+  .barra-menu b { font: 500 1.05rem "Pixelify Sans", sans-serif; }
+  .barra-menu small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #CBD5E1; font-size: .82rem; }
+  .barra .botao { flex: none; min-height: 48px; padding: 0 14px; box-shadow: 3px 3px 0 #020617; border-color: #020617; }
+  .menu-links.aberto { position: fixed; left: 10px; right: 10px; bottom: calc(84px + env(safe-area-inset-bottom)); display: grid; gap: 0; padding: 8px; background: var(--grafite); border: 3px solid #020617; box-shadow: 4px 4px 0 #020617; }
+  .menu-links.aberto a { display: flex; align-items: center; min-height: 52px; padding: 0 12px; font-size: 1.15rem; border-bottom: 2px dotted rgba(226, 232, 240, .25); }
+  .menu-links.aberto a:last-child { border-bottom: 0; }
+
+  /* as ilhas e as rotas numa faixa que corre de lado, uma placa por vez, com a próxima aparecendo na beira */
+  .ilhas, .rotas { grid-auto-flow: column; grid-auto-columns: 86%; align-items: stretch; margin: 0 -16px; padding: 4px 16px 18px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding: 0 16px; scrollbar-width: thin; }
+  .ilhas > li, .rotas > .rota { scroll-snap-align: start; }
+  .ilha { grid-template-columns: 1fr; align-content: start; }
+  .ilha .botao { justify-self: start; }
+  .faixa-dica { margin: -6px 0 14px; color: var(--tinta-suave); font: 500 .9rem "Pixelify Sans", sans-serif; }
+}
+.faixa-dica { display: none; }
+@media (max-width: 699px) { .faixa-dica { display: block; } }
+
 /* ===== Tablet (700 px ou mais) ===== */
 @media (min-width: 700px) {
   .dentro { padding: 0 28px; }
@@ -244,6 +274,10 @@ a.marca-ilha:hover { background: #FDE68A; transform: translate(-50%, calc(-50% -
   .ilhas { grid-template-columns: repeat(2, 1fr); }
   .casos { grid-template-columns: repeat(2, 1fr); }
   .rotas { grid-template-columns: repeat(2, 1fr); }
+  /* tablet: a ilha que sobra (a LinuPedia) e a rota que sobra (Tudo junto) deitam na largura toda */
+  .ilhas > li:last-child:nth-child(odd) { grid-column: 1 / -1; grid-template-columns: auto 1fr; }
+  .rotas > .rota:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .rotas > .rota:last-child:nth-child(odd) .rota-itens { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; }
   .passos { grid-template-columns: repeat(3, 1fr); }
   .passos li { grid-template-columns: 1fr; }
   .passos li::before { grid-row: auto; margin-bottom: 8px; }
@@ -268,6 +302,8 @@ a.marca-ilha:hover { background: #FDE68A; transform: translate(-50%, calc(-50% -
 @media (min-width: 1100px) {
   .casos { grid-template-columns: repeat(4, 1fr); }
   .rotas { grid-template-columns: repeat(3, 1fr); }
+  .rotas > .rota:last-child:nth-child(odd) { grid-column: auto; }
+  .rotas > .rota:last-child:nth-child(odd) .rota-itens { grid-template-columns: 1fr; }
   .identidade-grade { grid-template-columns: 300px 1fr 1fr; align-items: start; }
   .identidade-linu { grid-column: 1; grid-row: 1 / span 3; position: sticky; top: 100px; grid-template-columns: 1fr; }
   .identidade-linu img { width: 172px; }
