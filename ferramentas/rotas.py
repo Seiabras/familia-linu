@@ -1,5 +1,5 @@
 """As rotas da família com os preços dos irmãos (07/11/2026). Lê o rotas.json e o precos.json de cada irmão e
-reescreve, no index.html, o bloco das rotas (entre <div class="rotas"> e o fim dele) e os “a partir de” da legenda
+reescreve, no index.html, o bloco das rotas (entre <div class="rotas" ...> e o fim dele) e os “a partir de” da legenda
 (<p class="ilha-preco" data-irmao="…">). O resto da página continua sendo editado à mão.
 
     python3 ferramentas/rotas.py               com os preços atuais do GitHub (é o que o Actions roda antes de publicar)
@@ -65,7 +65,7 @@ def rotas_html(rotas, precos):
         blocos.append(f'''          <article class="rota{' rota-destaque' if dest else ''}">
             <h3 class="rota-nome">Rota {r["nome"]}</h3>
             <p>{r["texto"]}</p>
-            <ol class="rota-paradas" title="As ilhas desta rota">{stops}</ol>
+            <ol class="rota-paradas" data-mov-grupo="lado" title="As ilhas desta rota">{stops}</ol>
             <ul class="rota-itens">
 {lis}
             </ul>
@@ -81,8 +81,9 @@ def main():
     rotas = json.loads((RAIZ / 'rotas.json').read_text(encoding='utf-8'))['rotas']
     pagina = RAIZ / 'index.html'
     antes = pagina.read_text(encoding='utf-8')
-    ini = antes.index('<div class="rotas">') + len('<div class="rotas">\n')
-    fim = antes.index('        </div>\n        <p class="rotas-nota">', ini)
+    abre = '<div class="rotas" data-mov-grupo="sobe">'   # as rotas entram em cascata (js/movimento.js)
+    ini = antes.index(abre) + len(abre + '\n')
+    fim = antes.index('        </div>\n        <p class="rotas-nota" data-mov="aparece">', ini)
     depois = antes[:ini] + rotas_html(rotas, precos) + '\n' + antes[fim:]
     # a legenda: o menor preço de entrega única de cada irmão (no Linu Sites, o site de apresentação); o mensal fica de
     # fora para não comparar coisas diferentes
