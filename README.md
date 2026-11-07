@@ -28,6 +28,7 @@ o GitHub Actions entrega o site na VM da Oracle e o Caddy serve o subdomínio (d
 | `arte/` | Os pedidos à API de imagens: o mapa de dia com cinco ilhas, com sete (`-dia7`, o que vale) e de noite, e o Linu com o álbum. A tentativa aprovada de cada um está em `aprovada.json`; as tentativas ficam fora do git. |
 | `ferramentas/compartilhar/` | A imagem de compartilhar (`img/compartilhar.png`): `node ferramentas/compartilhar/gerar.mjs`. |
 | `ferramentas/conferir-visual.mjs` | A conferência visual que o Actions roda antes de publicar (cópia do `linuarquivos/modelos/ferramentas/`): 390, 820 e 1280 px, claro e escuro; reprova com rolagem lateral, erro no console, arquivo faltando ou falha séria de acessibilidade, e guarda as capturas como artefato. No computador: `node ferramentas/conferir-visual.mjs --raiz . --playwright <pasta do playwright> --axe <axe.min.js>`. |
+| `ferramentas/vigia.py` e `.github/workflows/vigia.yml` | O Vigia dos sites da família: a cada 30 minutos confere se os cinco endereços abrem, se são o site certo e se o certificado HTTPS não está para vencer; com problema, abre um aviso (issue) “Vigia: site com problema”, que o GitHub manda por e-mail, e fecha sozinho quando volta. Toda segunda, procura links quebrados nos quatro sites. |
 | `deploy/` | A publicação na VM: o `receber.sh`, a preparação, o bloco do Caddy, a conferência das páginas e o `ORACLE.md`. |
 | `IDENTIDADE.md` | O objeto e a cor deste site. |
 | `DIRETRIZES-UX.md` | As diretrizes de interface e desempenho de todos os projetos. |

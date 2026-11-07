@@ -1,0 +1,60 @@
+name: Vigia dos sites
+
+# O Vigia da família (07/11/2026): a cada 30 minutos confere se os sites abrem, se são o site certo e se o
+# certificado HTTPS não está para vencer (ferramentas/vigia.py). Com problema, abre (ou atualiza) um aviso
+# “Vigia: site com problema”, e o GitHub manda e-mail; quando tudo volta, o aviso fecha sozinho.
+# Toda segunda de manhã, procura links quebrados nas páginas dos quatro sites (lychee), com aviso próprio.
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+    - cron: '0 10 * * 1'   # segunda, 7h em Brasília
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  sites:
+    if: github.event.schedule != '0 10 * * 1'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Conferir os sites
+        id: vigia
+        run: |
+          set +e
+          python3 ferramentas/vigia.py > relatorio.md
+          echo "codigo=$?" >> "$GITHUB_OUTPUT"
+          cat relatorio.md
+      - name: Abrir, atualizar ou fechar o aviso
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TITULO: 'Vigia: site com problema'
+        run: |
+          aberto=$(gh issue list --state open --search "in:title \"$TITULO\"" --json number -q '.[0].number')
+          if [ "${{ steps.vigia.outputs.codigo }}" != "0" ]; then
+            if [ -n "$aberto" ]; then gh issue comment "$aberto" --body-file relatorio.md
+            else gh issue create --title "$TITULO" --body-file relatorio.md; fi
+            exit 1
+          elif [ -n "$aberto" ]; then
+            gh issue close "$aberto" --comment "Tudo de volta ao normal. $(head -1 relatorio.md)"
+          fi
+
+  links:
+    if: github.event.schedule == '0 10 * * 1' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Procurar links quebrados
+        id: lychee
+        uses: lycheeverse/lychee-action@v2.9.0
+        with:
+          args: --no-progress --max-concurrency 4 --timeout 20 --accept 200,204,206,301,302,308,429 https://familia.linupedia.com.br/ https://familia.linupedia.com.br/identidade https://sites.linupedia.com.br/ https://digital.linupedia.com.br/ https://seguro.linupedia.com.br/
+          output: links.md
+          fail: false
+      - name: Aviso dos links
+        if: steps.lychee.outputs.exit_code != 0
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create -R "${{ github.repository }}" --title "Vigia: links quebrados ($(date +%d/%m))" --body-file links.md
