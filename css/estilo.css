@@ -224,6 +224,8 @@ a.marca-ilha:hover { background: #FDE68A; transform: translate(-50%, calc(-50% -
 :root[data-theme="dark"] .nunca-x { color: #FCA5A5; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .nunca-x { color: #FCA5A5; } }
 .cor-iglu { background: #0E7490; }
+.letras { margin: 0; padding-left: 20px; display: grid; gap: 6px; color: var(--tinta-suave); }
+.letras b { color: var(--tinta); }
 .cor, .familia li { border-radius: 0 !important; border: 3px solid var(--borda) !important; box-shadow: 4px 4px 0 var(--sombra); background: var(--cartao) !important; }
 .familia-aqui { border-color: var(--cor) !important; box-shadow: 4px 4px 0 var(--cor); }
 .cor-amostra { border-radius: 0 !important; }
