@@ -1,0 +1,17 @@
+{
+  "_leia": "As rotas da família (os pacotes que passam por mais de uma ilha). Cada item aponta para um serviço de um irmão pelo id do precos.json dele; o preço vem de lá. Depois de mudar, rode python3 ferramentas/rotas.py (o Actions roda antes de publicar, com os preços atuais do GitHub).",
+  "rotas": [
+    {"nome": "Abrir as portas", "texto": "Para quem ainda não aparece na internet: o site, o Google e o WhatsApp prontos de uma vez.", "itens": [
+      ["sites", "apresentacao", "Site de apresentação"], ["sites", "plano_no_ar", "Plano No ar (servidor, HTTPS, cópias)"],
+      ["digital", "meu-negocio", "Google Meu Negócio"], ["digital", "perfil", "Organização do perfil"],
+      ["seguro", "contas", "WhatsApp e contas protegidos"]]},
+    {"nome": "Crescer com segurança", "destaque": true, "texto": "Para quem já tem cliente: constância nas redes e o negócio protegido enquanto cresce.", "itens": [
+      ["digital", "gestao", "Gestão mensal de Instagram"], ["digital", "reels", "Reels, Shorts e TikTok"],
+      ["seguro", "checkup", "Check-up de segurança"], ["seguro", "vigia", "Vigia (conferir tudo todo mês)"]]},
+    {"nome": "Tudo junto", "texto": "Site, marca, redes, anúncios e segurança andando juntos, com uma conversa só.", "itens": [
+      ["sites", "apresentacao", "Site de apresentação"], ["sites", "plano_no_ar", "Plano No ar"],
+      ["digital", "identidade", "Logo e identidade visual"], ["digital", "gestao", "Gestão mensal de Instagram"],
+      ["digital", "meta", "Anúncios no Instagram e no Facebook"], ["seguro", "checkup", "Check-up de segurança"],
+      ["seguro", "copias", "Cópias de segurança automáticas"], ["seguro", "vigia", "Vigia"]]}
+  ]
+}

@@ -39,11 +39,14 @@ o GitHub Actions entrega o site na VM da Oracle e o Caddy serve o subdomínio (d
   Seguro, o acampamento da LinuPedia), a casa da Família no meio com o Linu no cais e duas ilhas vagas para os irmãos
   que vierem. De noite, as janelas acendem e aparece a aurora. O mapa é pixel art de verdade: a grade fica fixa e a
   página só mostra em 2× ou 3× exatos (o largo a partir de 800 px, em 3× a partir de 1200 px; o alto no celular).
-- **Os nomes por cima:** HTML, não desenho; cada um leva ao site do irmão. Para mudar de lugar, o `index.html` é gerado
-  com a posição de cada nome na grade e escreve o `css/marcas.css`.
+- **Os nomes por cima:** HTML, não desenho; cada um leva ao site do irmão. A posição de cada nome está no
+  `css/marcas.css`, em porcentagem da grade do mapa (384 × 216 no largo, 176 × 312 no alto).
 - **As ilhas (a legenda), para onde ir e as rotas:** as rotas são os pacotes que passam por mais de uma ilha, com as
-  paradas, os itens com a etiqueta de quem faz e o total. **Mudou um preço num irmão, muda aqui** (os itens e os totais
-  estão escritos no `index.html`).
+  paradas, os itens com a etiqueta de quem faz e o total. **Os preços vêm dos irmãos** (07/11/2026): as rotas ficam no
+  `rotas.json` (cada item é o id de um serviço no `precos.json` do irmão), e o `ferramentas/rotas.py` reescreve o bloco
+  das rotas e os “a partir de” da legenda. O Actions roda antes de cada publicação, com os preços atuais do GitHub, e
+  publica de novo todo dia às 6h, então um preço mudado num irmão chega aqui no mesmo dia. No computador:
+  `python3 ferramentas/rotas.py --local` (com os repositórios irmãos ao lado).
 - **Irmão novo:** ocupa uma ilha vaga: pedir à API a ilha com a casa dele a partir do `img/mapa-*` atual (de dia e de
   noite), levar para a grade, e trocar a placa “Ilha vaga” pelo nome e o link.
 

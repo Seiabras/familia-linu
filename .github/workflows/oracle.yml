@@ -7,6 +7,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # uma vez por dia, para as rotas acompanharem os preços dos irmãos (ferramentas/rotas.py)
+  schedule:
+    - cron: '0 9 * * *'
 
 concurrency:
   group: oracle
@@ -35,6 +38,7 @@ jobs:
           node-version: 22
       - name: Conferir a página
         run: |
+          python3 ferramentas/rotas.py
           test -f index.html
           npx --yes html-validate@10.1.2 *.html
           python3 deploy/conferir-pagina.py
