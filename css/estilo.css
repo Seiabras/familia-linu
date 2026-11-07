@@ -21,7 +21,7 @@
   --borda: #1F2A44;
   --sombra: #1F2A44;
   --placa: #FFF6DC;
-  --sites: #0F766E; --digital: #C2410C; --seguro: #0E7490;
+  --sites: #1D4ED8; --digital: #C2410C; --seguro: #0E7490;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
@@ -29,7 +29,7 @@
     --cor: #60A5FA; --cor-forte: #93C5FD; --cor-clara: #172554; --azul: #93C5FD;
     --fundo: #0A1628; --grade: rgba(147, 197, 253, .06); --mar: #0E2440; --cartao: #13233D; --tinta: #E2E8F0;
     --tinta-suave: #A3B1C6; --borda: #7FA3CC; --sombra: #020617; --placa: #1C2F4F;
-    --sites: #5EEAD4; --digital: #FB923C; --seguro: #22D3EE;
+    --sites: #93C5FD; --digital: #FB923C; --seguro: #22D3EE;
     color-scheme: dark;
   }
 }
@@ -37,7 +37,7 @@
   --cor: #60A5FA; --cor-forte: #93C5FD; --cor-clara: #172554; --azul: #93C5FD;
   --fundo: #0A1628; --grade: rgba(147, 197, 253, .06); --mar: #0E2440; --cartao: #13233D; --tinta: #E2E8F0;
   --tinta-suave: #A3B1C6; --borda: #7FA3CC; --sombra: #020617; --placa: #1C2F4F;
-  --sites: #5EEAD4; --digital: #FB923C; --seguro: #22D3EE;
+  --sites: #93C5FD; --digital: #FB923C; --seguro: #22D3EE;
   color-scheme: dark;
 }
 
@@ -213,7 +213,7 @@ a.marca-ilha:hover { background: #FDE68A; transform: translate(-50%, calc(-50% -
 .cor code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .9rem; color: var(--tinta-suave); }
 .cor small { color: var(--tinta-suave); font-size: .82rem; line-height: 1.4; }
 .cor-azul { background: #2563EB; } .cor-grafite { background: #1F2A44; } .cor-fogo { background: #EA580C; } .cor-fogo-escuro { background: #C2410C; }
-.cor-aurora { background: #0F766E; } .cor-gelo { background: #EFF8FF; } .cor-pergaminho { background: #FBF3E3; }
+.cor-papel-vegetal { background: #F3F7FC; } .cor-cianotipo { background: #0C2A5B; } .cor-marca-texto { background: #FDE047; } .cor-pergaminho { background: #FBF3E3; }
 .identidade-copiado { margin: 6px 0 0; min-height: 1.4em; font-weight: 800; color: var(--cor); }
 .letra-amostra { margin: 0 0 8px; font-size: 2.6rem; font-weight: 900; line-height: 1.1; }
 .identidade-bloco p { margin: 0 0 8px; }
