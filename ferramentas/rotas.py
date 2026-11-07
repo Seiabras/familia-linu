@@ -94,8 +94,11 @@ def main():
     depois = re.sub(r'(<p class="ilha-preco" data-irmao="(\w+)">).*?(</p>)',
                     lambda m: m.group(1) + f'{rotulo[m.group(2)]} {brl(menor[m.group(2)])}' + m.group(3), depois)
     if '--conferir' in sys.argv:
-        print('As rotas estão em dia.' if depois == antes else 'As rotas não batem com os preços dos irmãos.')
-        sys.exit(0 if depois == antes else 1)
+        # a versão dos arquivos (?v=, do versao-arquivos.py) não conta na comparação
+        sem_v = lambda s: re.sub(r'\?v=[0-9a-f]{8}', '', s)
+        igual = sem_v(depois) == sem_v(antes)
+        print('As rotas estão em dia.' if igual else 'As rotas não batem com os preços dos irmãos.')
+        sys.exit(0 if igual else 1)
     if depois != antes:
         pagina.write_text(depois, encoding='utf-8')
         print('index.html: rotas e legenda atualizadas com os preços dos irmãos.')

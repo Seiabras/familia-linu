@@ -128,7 +128,7 @@ a.marca-ilha:hover { background: #FDE68A; transform: translate(-50%, calc(-50% -
 .ilha-texto .ilha-preco { color: var(--tinta); font-weight: 800; }
 .ilha .botao { margin-top: 6px; }
 .vagas { display: flex; align-items: center; gap: 16px; margin: 28px 0 0; padding: 14px 16px; border: 3px dashed var(--borda); color: var(--tinta-suave); }
-.vagas img { width: 122px; flex: none; }   /* o Linu com o álbum em 1× */
+.vagas img { width: 143px; flex: none; }   /* o Linu com o álbum em 1× */
 .vagas b { color: var(--tinta); font-family: "Pixelify Sans", sans-serif; font-weight: 500; font-size: 1.15rem; }
 
 /* Para onde ir */
