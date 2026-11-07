@@ -39,23 +39,5 @@
     });
   });
 
-  /* 3. Entradas ao rolar: um observer só, uma vez por elemento; o que já está na tela não é escondido */
-  if ("IntersectionObserver" in window && !menosMovimento.matches) {
-    var alvos = document.querySelectorAll(".secao h2, .secao-sub, .casos li, .rota, .passos li, .ilha");
-    var vistos = new IntersectionObserver(function (itens) {
-      itens.forEach(function (item) {
-        if (!item.isIntersecting) return;
-        item.target.classList.remove("antes");
-        vistos.unobserve(item.target);
-      });
-    }, { rootMargin: "0px 0px -8% 0px" });
-    var altura = window.innerHeight;
-    alvos.forEach(function (el) {
-      if (el.getBoundingClientRect().top < altura) return;
-      var posicao = Array.prototype.indexOf.call(el.parentElement.children, el) % 6;
-      el.style.setProperty("--atraso", posicao * 50 + "ms");
-      el.classList.add("antes");
-      vistos.observe(el);
-    });
-  }
+  /* 3. Entradas ao rolar: js/movimento.js (o kit do linuarquivos), pelos atributos data-mov do index.html */
 })();

@@ -234,9 +234,7 @@ a.marca-ilha:hover { background: #FDE68A; transform: translate(-50%, calc(-50% -
 .familia-aqui { border-color: var(--cor) !important; box-shadow: 4px 4px 0 var(--cor); }
 .cor-amostra { border-radius: 0 !important; }
 
-/* Entradas ao rolar (js/familia.js): só transform e opacity */
-.antes { opacity: 0; transform: translateY(14px); }
-.secao h2, .secao-sub, .casos li, .rota, .passos li, .ilha { transition-property: opacity, transform; transition-duration: .24s; transition-timing-function: cubic-bezier(.2, .7, .3, 1); transition-delay: var(--atraso, 0ms); }
+/* Entradas ao rolar: js/movimento.js e css/movimento.css (o kit do linuarquivos) */
 
 /* ===== Tablet (700 px ou mais) ===== */
 @media (min-width: 700px) {
@@ -281,7 +279,6 @@ a.marca-ilha:hover { background: #FDE68A; transform: translate(-50%, calc(-50% -
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition-duration: 0s !important; transition-delay: 0s !important; }
-  .antes { opacity: 1; transform: none; }
 }
 .erro { min-height: 100vh; display: grid; align-items: center; }
 .sobretitulo { margin: 0 0 8px; color: var(--cor); font-weight: 800; }
