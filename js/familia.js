@@ -6,8 +6,7 @@
   var menosMovimento = window.matchMedia("(prefers-reduced-motion: reduce)");
   function guardar(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
 
-  /* 1. Tema: sem escolha, segue o sistema; o botão alterna e guarda. A estação do Linu Sites no álbum troca de dia
-        para noite junto (só CSS). */
+  /* 1. Tema: sem escolha, segue o sistema; o botão alterna e guarda. O mapa troca de dia para noite junto (só CSS). */
   var botaoTema = document.querySelector("[data-tema]");
   var sistemaEscuro = window.matchMedia("(prefers-color-scheme: dark)");
   function escuroAgora() { return raiz.dataset.theme ? raiz.dataset.theme === "dark" : sistemaEscuro.matches; }
@@ -42,7 +41,7 @@
 
   /* 3. Entradas ao rolar: um observer só, uma vez por elemento; o que já está na tela não é escondido */
   if ("IntersectionObserver" in window && !menosMovimento.matches) {
-    var alvos = document.querySelectorAll(".secao h2, .secao-sub, .casos li, .pacote-familia, .passos li");
+    var alvos = document.querySelectorAll(".secao h2, .secao-sub, .casos li, .rota, .passos li, .ilha");
     var vistos = new IntersectionObserver(function (itens) {
       itens.forEach(function (item) {
         if (!item.isIntersecting) return;

@@ -1,0 +1,16 @@
+/* Os nomes das ilhas por cima do mapa, gerados junto com o index.html: o centro de cada nome na grade do mapa
+   (384 × 216 no largo, 176 × 312 no alto), em porcentagem, para acompanhar a ampliação. */
+.m-l-sites { left: 20.83%; top: 40.74%; }
+.m-l-digital { left: 77.08%; top: 41.67%; }
+.m-l-familia { left: 52.08%; top: 67.59%; }
+.m-l-seguro { left: 20.31%; top: 91.67%; }
+.m-l-pedia { left: 81.25%; top: 92.59%; }
+.m-l-vaga1 { left: 8.85%; top: 59.26%; }
+.m-l-vaga2 { left: 91.15%; top: 57.41%; }
+.m-a-sites { left: 27.27%; top: 25.00%; }
+.m-a-digital { left: 73.86%; top: 37.82%; }
+.m-a-familia { left: 47.73%; top: 62.82%; }
+.m-a-seguro { left: 25.00%; top: 83.97%; }
+.m-a-pedia { left: 70.45%; top: 96.79%; }
+.m-a-vaga1 { left: 14.77%; top: 44.23%; }
+.m-a-vaga2 { left: 86.36%; top: 58.33%; }

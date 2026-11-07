@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Família Linu: site, redes, segurança e a LinuPedia, da mesma equipe</title>
-  <meta name="description" content="O Linu Sites faz o site, o Digital Linu cuida das redes e dos anúncios, o Linu Seguro protege o negócio. Pacotes que juntam os três, com uma conversa só.">
+  <title>Família Linu: as ilhas do Linu Sites, do Digital e do Seguro</title>
+  <meta name="description" content="Um arquipélago, uma família: o Linu Sites faz o site, o Digital Linu cuida das redes e dos anúncios, o Linu Seguro protege o negócio. Rotas que juntam os três, com uma conversa só.">
   <meta name="theme-color" content="#1F2A44">
   <link rel="icon" href="img/linu-logo.png" type="image/png" sizes="128x128">
   <link rel="icon" href="img/icone-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="img/icone-180.png">
   <meta property="og:title" content="Família Linu">
-  <meta property="og:description" content="Site, redes sociais, anúncios e segurança para pequenos negócios, da mesma equipe, e a LinuPedia, onde o Linu nasceu.">
+  <meta property="og:description" content="Site, redes sociais, anúncios e segurança para pequenos negócios, cada um na sua ilha, e a LinuPedia, onde o Linu nasceu.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://familia.linupedia.com.br/">
   <meta property="og:locale" content="pt_BR">
@@ -20,22 +20,24 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
   <link rel="canonical" href="https://familia.linupedia.com.br/">
-  <link rel="preload" href="fontes/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fontes/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <script src="js/tema-inicio.js?v=1"></script>
-  <link rel="stylesheet" href="css/estilo.css?v=1">
-  <script src="js/familia.js?v=1" defer></script>
+  <link rel="stylesheet" href="css/fontes-pixel.css?v=1">
+  <link rel="stylesheet" href="css/estilo.css?v=2">
+  <link rel="stylesheet" href="css/marcas.css?v=1">
+  <script src="js/familia.js?v=2" defer></script>
 </head>
 <body>
   <header class="topo">
     <div class="dentro topo-dentro">
       <a class="marca" href="./" aria-label="Família Linu, início">
         <img src="img/linu-logo.png" alt="" width="40" height="40">
-        <span><b>Família</b> Linu</span>
+        <span>Família Linu</span>
       </a>
       <nav class="menu" aria-label="Seções">
         <div class="menu-links">
-          <a href="#irmaos">Os irmãos</a>
-          <a href="#pacotes">Pacotes</a>
+          <a href="#ilhas">As ilhas</a>
+          <a href="#rotas">Rotas</a>
           <a href="identidade">Identidade</a>
           <a href="#contato">Contato</a>
         </div>
@@ -50,136 +52,143 @@
   </header>
 
   <main>
+    <!-- O mapa das ilhas (07/11/2026): pixel art pela API de imagens (arte/), levada para a grade 384 × 216 (largo) e
+         176 × 312 (alto) e mostrada só em 2× ou 3× exatos. Os nomes são HTML por cima (css/marcas.css). -->
     <section class="abertura">
-      <div class="dentro abertura-dentro">
-        <div>
-          <p class="sobretitulo">Um pinguim, quatro lugares</p>
-          <h1>O site, as redes e a segurança do seu negócio, <span class="destaque">da mesma família</span></h1>
-          <p class="abertura-sub">O Linu Sites faz o site, o Digital Linu cuida das redes e dos anúncios, o Linu Seguro protege
-            o que você construiu. Dá para contratar um só ou juntar os três num pacote, com uma conversa só.</p>
-          <div class="botoes">
-            <a class="botao" href="#pacotes">Ver os pacotes da família</a>
-            <a class="botao botao-linha" href="#irmaos">Conhecer os irmãos</a>
+      <div class="dentro">
+        <h1>Um arquipélago, <span class="destaque">uma família</span></h1>
+        <p class="abertura-sub">Cada irmão mora na sua ilha: o Linu Sites faz o site, o Digital Linu cuida das redes e dos anúncios,
+          o Linu Seguro protege o que você construiu. As pontes são as rotas: dá para visitar uma ilha só ou juntar várias,
+          com uma conversa só.</p>
+      </div>
+      <div class="mapa">
+        <div class="mapa-largo">
+          <img class="pixel mapa-dia" src="img/mapa-largo-dia.png" alt="Mapa em pixel art de sete ilhas: a estação do Linu Sites, o estúdio do Digital Linu, o iglu do Linu Seguro, o acampamento da LinuPedia, a casa da Família Linu no meio, com o Linu no cais, e duas ilhas vagas" width="384" height="216">
+          <img class="pixel mapa-noite" src="img/mapa-largo-noite.png" alt="O mesmo mapa das ilhas, à noite, com as janelas acesas" width="384" height="216">
+          <div class="marcas">
+            <a class="marca-ilha m-l-sites" href="https://sites.linupedia.com.br/">Linu Sites</a>
+            <a class="marca-ilha m-l-digital" href="https://digital.linupedia.com.br/">Digital Linu</a>
+            <span class="marca-ilha m-l-familia">Família Linu</span>
+            <a class="marca-ilha m-l-seguro" href="https://seguro.linupedia.com.br/">Linu Seguro</a>
+            <a class="marca-ilha m-l-pedia" href="https://linupedia.com.br/">LinuPedia</a>
+            <span class="marca-ilha m-l-vaga1 marca-vaga">Ilha vaga</span>
+            <span class="marca-ilha m-l-vaga2 marca-vaga">Ilha vaga</span>
           </div>
         </div>
-        <figure class="abertura-linu">
-          <img class="pixel" src="img/linu-album.png" alt="O Linu segurando o álbum da família, com uma foto de cada irmão" width="126" height="190">
-          <figcaption>Cada irmão tem a sua casa. Aqui é onde a família se encontra.</figcaption>
-        </figure>
+        <div class="mapa-alto">
+          <img class="pixel mapa-dia" src="img/mapa-alto-dia.png" alt="Mapa em pixel art de sete ilhas, de cima para baixo: a estação do Linu Sites, o estúdio do Digital Linu, a casa da Família Linu com o Linu no cais, o iglu do Linu Seguro, o acampamento da LinuPedia e duas ilhas vagas" width="176" height="312">
+          <img class="pixel mapa-noite" src="img/mapa-alto-noite.png" alt="O mesmo mapa das ilhas, à noite, com as janelas acesas" width="176" height="312">
+          <div class="marcas">
+            <a class="marca-ilha m-a-sites" href="https://sites.linupedia.com.br/">Linu Sites</a>
+            <a class="marca-ilha m-a-digital" href="https://digital.linupedia.com.br/">Digital Linu</a>
+            <span class="marca-ilha m-a-familia">Família Linu</span>
+            <a class="marca-ilha m-a-seguro" href="https://seguro.linupedia.com.br/">Linu Seguro</a>
+            <a class="marca-ilha m-a-pedia" href="https://linupedia.com.br/">LinuPedia</a>
+            <span class="marca-ilha m-a-vaga1 marca-vaga">Ilha vaga</span>
+            <span class="marca-ilha m-a-vaga2 marca-vaga">Ilha vaga</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- O álbum (07/11/2026): uma foto de cada irmão, com o objeto dele (IDENTIDADE.md) -->
-    <section class="secao" id="irmaos">
+    <section class="secao" id="ilhas">
       <div class="dentro">
-        <h2>Os irmãos</h2>
-        <p class="secao-sub">Cada um tem o seu endereço, a sua cor e o seu objeto. O Linu é o mesmo em todos.</p>
-        <ol class="album">
-          <li class="foto">
-            <div class="foto-cena cena-sites">
-              <img class="pixel dia" src="img/abrigo-estacao-dia.png" alt="A estação do Linu Sites de dia, com o lampião" width="344" height="192" loading="lazy">
-              <img class="pixel noite" src="img/abrigo-estacao-noite.png" alt="A estação do Linu Sites à noite, com o lampião aceso" width="344" height="192" loading="lazy">
-            </div>
-            <div class="foto-legenda">
+        <h2>As ilhas</h2>
+        <p class="secao-sub">A legenda do mapa. Cada ilha tem o seu endereço, a sua cor e a sua casa; o Linu é o mesmo em todas.</p>
+        <ul class="ilhas">
+          <li class="ilha">
+            <img class="pixel ilha-img" src="img/ilha-sites.png" alt="" width="264" height="164" loading="lazy">
+            <div class="ilha-texto">
               <h3>Linu Sites</h3>
-              <p>Sites, sistemas e aplicativos sob medida.</p>
-              <p class="foto-objeto">A estação, com o lampião que o Linu apaga à noite.</p>
-              <p class="foto-preco">Site a partir de R$&nbsp;1.200</p>
+              <p>A estação: sites, sistemas e aplicativos sob medida, com o lampião que o Linu apaga à noite.</p>
+              <p class="ilha-preco">Site a partir de R$&nbsp;1.200</p>
+              <a class="botao botao-linha" href="https://sites.linupedia.com.br/">Ir para a estação</a>
             </div>
-            <a class="botao botao-linha" href="https://sites.linupedia.com.br/">Visitar</a>
           </li>
-          <li class="foto">
-            <div class="foto-cena cena-digital">
-              <span class="cena-rec">REC</span>
-              <span class="cena-canto cena-canto-1"></span><span class="cena-canto cena-canto-2"></span>
-              <span class="cena-canto cena-canto-3"></span><span class="cena-canto cena-canto-4"></span>
-              <img class="pixel" src="img/linu-frente.png" alt="O Linu no visor da câmera do Digital Linu" width="172" height="190" loading="lazy">
-            </div>
-            <div class="foto-legenda">
+          <li class="ilha">
+            <img class="pixel ilha-img" src="img/ilha-digital.png" alt="" width="232" height="140" loading="lazy">
+            <div class="ilha-texto">
               <h3>Digital Linu</h3>
-              <p>Vídeo, redes sociais, anúncios, marca e automação.</p>
-              <p class="foto-objeto">A ilha de edição: o Linu no visor da câmera.</p>
-              <p class="foto-preco">Serviços a partir de R$&nbsp;200</p>
+              <p>O estúdio: vídeo, redes sociais, anúncios, marca e automação.</p>
+              <p class="ilha-preco">Serviços a partir de R$&nbsp;200</p>
+              <a class="botao botao-linha" href="https://digital.linupedia.com.br/">Ir para o estúdio</a>
             </div>
-            <a class="botao botao-linha" href="https://digital.linupedia.com.br/">Visitar</a>
           </li>
-          <li class="foto">
-            <div class="foto-cena cena-seguro">
-              <img class="pixel iglu" src="img/iglu.png" alt="" width="204" height="171" loading="lazy">
-              <img class="pixel linu" src="img/linu-frente.png" alt="O Linu na frente do iglu do Linu Seguro" width="172" height="190" loading="lazy">
-            </div>
-            <div class="foto-legenda">
+          <li class="ilha">
+            <img class="pixel ilha-img" src="img/ilha-seguro.png" alt="" width="244" height="148" loading="lazy">
+            <div class="ilha-texto">
               <h3>Linu Seguro</h3>
-              <p>Golpes, senhas, cópias de segurança, e-mail e site protegidos.</p>
-              <p class="foto-objeto">O iglu: cada cuidado é um bloco no lugar.</p>
-              <p class="foto-preco">Serviços a partir de R$&nbsp;250</p>
+              <p>O iglu: golpes, senhas, cópias de segurança, e-mail e site protegidos, bloco por bloco.</p>
+              <p class="ilha-preco">Serviços a partir de R$&nbsp;250</p>
+              <a class="botao botao-linha" href="https://seguro.linupedia.com.br/">Ir para o iglu</a>
             </div>
-            <a class="botao botao-linha" href="https://seguro.linupedia.com.br/">Visitar</a>
           </li>
-          <li class="foto">
-            <div class="foto-cena cena-pedia">
-              <img class="pixel" src="img/linu-frente.png" alt="O Linu na página do caderno de expedição da LinuPedia" width="172" height="190" loading="lazy">
-            </div>
-            <div class="foto-legenda">
+          <li class="ilha">
+            <img class="pixel ilha-img" src="img/ilha-pedia.png" alt="" width="252" height="184" loading="lazy">
+            <div class="ilha-texto">
               <h3>LinuPedia</h3>
-              <p>Onde o Linu nasceu: idiomas e áreas do conhecimento para estudar de graça, sem propaganda.</p>
-              <p class="foto-objeto">O caderno de expedição.</p>
-              <p class="foto-preco">Gratuita</p>
+              <p>O acampamento da expedição, onde o Linu nasceu: idiomas e áreas do conhecimento para estudar de graça, sem propaganda.</p>
+              <p class="ilha-preco">Gratuita</p>
+              <a class="botao botao-linha" href="https://linupedia.com.br/">Ir para o acampamento</a>
             </div>
-            <a class="botao botao-linha" href="https://linupedia.com.br/">Visitar</a>
           </li>
-        </ol>
+        </ul>
+        <p class="vagas"><img class="pixel" src="img/linu-album.png" alt="" width="126" height="190" loading="lazy"><span><b>Duas ilhas vagas.</b> O marco
+          e as tábuas já estão lá, esperando os próximos irmãos da família.</span></p>
       </div>
     </section>
 
-    <section class="secao secao-gelo" id="casos">
+    <section class="secao secao-mar" id="casos">
       <div class="dentro">
-        <h2>Por onde começar</h2>
+        <h2>Para onde ir</h2>
         <p class="secao-sub">Escolha a frase que mais parece com o seu negócio hoje.</p>
         <ul class="casos">
-          <li><a href="#pacotes"><b>Ainda não apareço na internet</b><span>Site, Google e WhatsApp de uma vez.</span><span class="casos-ir">Abrir as portas →</span></a></li>
-          <li><a href="https://digital.linupedia.com.br/#raiox"><b>Tenho perfil, mas pouca gente chega</b><span>O Raio-X do Digital mostra o que falta.</span><span class="casos-ir">Digital Linu →</span></a></li>
-          <li><a href="https://seguro.linupedia.com.br/#raiox"><b>Tenho medo de golpe ou de perder tudo</b><span>O Raio-X do Seguro monta o seu iglu.</span><span class="casos-ir">Linu Seguro →</span></a></li>
+          <li><a href="#rotas"><b>Ainda não apareço na internet</b><span>Site, Google e WhatsApp de uma vez.</span><span class="casos-ir">Rota Abrir as portas →</span></a></li>
+          <li><a href="https://digital.linupedia.com.br/#raiox"><b>Tenho perfil, mas pouca gente chega</b><span>O Raio-X do estúdio mostra o que falta.</span><span class="casos-ir">Digital Linu →</span></a></li>
+          <li><a href="https://seguro.linupedia.com.br/#raiox"><b>Tenho medo de golpe ou de perder tudo</b><span>O Raio-X do iglu mostra os blocos que faltam.</span><span class="casos-ir">Linu Seguro →</span></a></li>
           <li><a href="https://sites.linupedia.com.br/#servicos"><b>Preciso de um site ou de um sistema</b><span>Apresentação, ferramenta ou aplicativo.</span><span class="casos-ir">Linu Sites →</span></a></li>
         </ul>
       </div>
     </section>
 
-    <section class="secao" id="pacotes">
+    <section class="secao" id="rotas">
       <div class="dentro">
-        <h2>Pacotes da família</h2>
-        <p class="secao-sub">Os que juntam os irmãos. Cada item mostra quem faz; os pacotes de um serviço só ficam no site
-          de cada um.</p>
-        <div class="pacotes">
-          <article class="pacote-familia">
-            <h3 class="pacote-nome">Abrir as portas</h3>
+        <h2>Rotas da família</h2>
+        <p class="secao-sub">Os pacotes que passam por mais de uma ilha. Cada item mostra quem faz; os pacotes de uma ilha só ficam
+          no site de cada irmão.</p>
+        <div class="rotas">
+          <article class="rota">
+            <h3 class="rota-nome">Rota Abrir as portas</h3>
             <p>Para quem ainda não aparece na internet: o site, o Google e o WhatsApp prontos de uma vez.</p>
-            <ul class="pacote-itens">
+            <ol class="rota-paradas" title="As ilhas desta rota"><li><img class="pixel" src="img/ilha-sites-p.png" alt="" width="66" height="41"><span>Linu Sites</span></li><li><img class="pixel" src="img/ilha-digital-p.png" alt="" width="58" height="35"><span>Digital Linu</span></li><li><img class="pixel" src="img/ilha-seguro-p.png" alt="" width="61" height="37"><span>Linu Seguro</span></li></ol>
+            <ul class="rota-itens">
               <li>Site de apresentação<span class="valor">R$&nbsp;1.200</span><small class="de-sites">Linu Sites</small></li>
               <li>Plano No ar (servidor, HTTPS, cópias)<span class="valor">R$&nbsp;60 por mês</span><small class="de-sites">Linu Sites</small></li>
               <li>Google Meu Negócio<span class="valor">R$&nbsp;350</span><small class="de-digital">Digital Linu</small></li>
               <li>Organização do perfil<span class="valor">R$&nbsp;300</span><small class="de-digital">Digital Linu</small></li>
               <li>WhatsApp e contas protegidos<span class="valor">R$&nbsp;250</span><small class="de-seguro">Linu Seguro</small></li>
             </ul>
-            <p class="pacote-total">a partir de <b>R$&nbsp;2.100</b> + <b>R$&nbsp;60</b> por mês</p>
-            <a class="botao botao-linha" href="https://wa.me/5561996672610?text=Ol%C3%A1%2C%20Fam%C3%ADlia%20Linu%21%20Quero%20um%20or%C3%A7amento%20do%20pacote%20Abrir%20as%20portas%3A%20Site%20de%20apresenta%C3%A7%C3%A3o%2C%20Plano%20No%20ar%20%28servidor%2C%20HTTPS%2C%20c%C3%B3pias%29%2C%20Google%20Meu%20Neg%C3%B3cio%2C%20Organiza%C3%A7%C3%A3o%20do%20perfil%2C%20WhatsApp%20e%20contas%20protegidos.%20Estimativa%20pela%20p%C3%A1gina%3A%20a%20partir%20de%20R%24%202.100%20%2B%20R%24%2060%20por%20m%C3%AAs." target="_blank" rel="noopener">Pedir este pacote</a>
+            <p class="rota-total">a partir de <b>R$&nbsp;2.100</b> + <b>R$&nbsp;60</b> por mês</p>
+            <a class="botao botao-linha" href="https://wa.me/5561996672610?text=Ol%C3%A1%2C%20Fam%C3%ADlia%20Linu%21%20Quero%20um%20or%C3%A7amento%20da%20rota%20Abrir%20as%20portas%3A%20Site%20de%20apresenta%C3%A7%C3%A3o%2C%20Plano%20No%20ar%20%28servidor%2C%20HTTPS%2C%20c%C3%B3pias%29%2C%20Google%20Meu%20Neg%C3%B3cio%2C%20Organiza%C3%A7%C3%A3o%20do%20perfil%2C%20WhatsApp%20e%20contas%20protegidos.%20Estimativa%20pela%20p%C3%A1gina%3A%20a%20partir%20de%20R%24%202.100%20%2B%20R%24%2060%20por%20m%C3%AAs." target="_blank" rel="noopener">Pedir esta rota</a>
           </article>
-          <article class="pacote-familia pacote-familia-destaque">
-            <h3 class="pacote-nome">Crescer com segurança</h3>
+          <article class="rota rota-destaque">
+            <h3 class="rota-nome">Rota Crescer com segurança</h3>
             <p>Para quem já tem cliente: constância nas redes e o negócio protegido enquanto cresce.</p>
-            <ul class="pacote-itens">
+            <ol class="rota-paradas" title="As ilhas desta rota"><li><img class="pixel" src="img/ilha-digital-p.png" alt="" width="58" height="35"><span>Digital Linu</span></li><li><img class="pixel" src="img/ilha-seguro-p.png" alt="" width="61" height="37"><span>Linu Seguro</span></li></ol>
+            <ul class="rota-itens">
               <li>Gestão mensal de Instagram<span class="valor">R$&nbsp;900 por mês</span><small class="de-digital">Digital Linu</small></li>
               <li>Reels, Shorts e TikTok<span class="valor">R$&nbsp;400 por mês</span><small class="de-digital">Digital Linu</small></li>
               <li>Check-up de segurança<span class="valor">R$&nbsp;350</span><small class="de-seguro">Linu Seguro</small></li>
               <li>Vigia (conferir tudo todo mês)<span class="valor">R$&nbsp;150 por mês</span><small class="de-seguro">Linu Seguro</small></li>
             </ul>
-            <p class="pacote-total">a partir de <b>R$&nbsp;350</b> + <b>R$&nbsp;1.450</b> por mês</p>
-            <a class="botao" href="https://wa.me/5561996672610?text=Ol%C3%A1%2C%20Fam%C3%ADlia%20Linu%21%20Quero%20um%20or%C3%A7amento%20do%20pacote%20Crescer%20com%20seguran%C3%A7a%3A%20Gest%C3%A3o%20mensal%20de%20Instagram%2C%20Reels%2C%20Shorts%20e%20TikTok%2C%20Check-up%20de%20seguran%C3%A7a%2C%20Vigia%20%28conferir%20tudo%20todo%20m%C3%AAs%29.%20Estimativa%20pela%20p%C3%A1gina%3A%20a%20partir%20de%20R%24%20350%20%2B%20R%24%201.450%20por%20m%C3%AAs." target="_blank" rel="noopener">Pedir este pacote</a>
+            <p class="rota-total">a partir de <b>R$&nbsp;350</b> + <b>R$&nbsp;1.450</b> por mês</p>
+            <a class="botao" href="https://wa.me/5561996672610?text=Ol%C3%A1%2C%20Fam%C3%ADlia%20Linu%21%20Quero%20um%20or%C3%A7amento%20da%20rota%20Crescer%20com%20seguran%C3%A7a%3A%20Gest%C3%A3o%20mensal%20de%20Instagram%2C%20Reels%2C%20Shorts%20e%20TikTok%2C%20Check-up%20de%20seguran%C3%A7a%2C%20Vigia%20%28conferir%20tudo%20todo%20m%C3%AAs%29.%20Estimativa%20pela%20p%C3%A1gina%3A%20a%20partir%20de%20R%24%20350%20%2B%20R%24%201.450%20por%20m%C3%AAs." target="_blank" rel="noopener">Pedir esta rota</a>
           </article>
-          <article class="pacote-familia">
-            <h3 class="pacote-nome">Tudo junto</h3>
+          <article class="rota">
+            <h3 class="rota-nome">Rota Tudo junto</h3>
             <p>Site, marca, redes, anúncios e segurança andando juntos, com uma conversa só.</p>
-            <ul class="pacote-itens">
+            <ol class="rota-paradas" title="As ilhas desta rota"><li><img class="pixel" src="img/ilha-sites-p.png" alt="" width="66" height="41"><span>Linu Sites</span></li><li><img class="pixel" src="img/ilha-digital-p.png" alt="" width="58" height="35"><span>Digital Linu</span></li><li><img class="pixel" src="img/ilha-seguro-p.png" alt="" width="61" height="37"><span>Linu Seguro</span></li></ol>
+            <ul class="rota-itens">
               <li>Site de apresentação<span class="valor">R$&nbsp;1.200</span><small class="de-sites">Linu Sites</small></li>
               <li>Plano No ar<span class="valor">R$&nbsp;60 por mês</span><small class="de-sites">Linu Sites</small></li>
               <li>Logo e identidade visual<span class="valor">R$&nbsp;1.200</span><small class="de-digital">Digital Linu</small></li>
@@ -189,22 +198,22 @@
               <li>Cópias de segurança automáticas<span class="valor">R$&nbsp;400</span><small class="de-seguro">Linu Seguro</small></li>
               <li>Vigia<span class="valor">R$&nbsp;150 por mês</span><small class="de-seguro">Linu Seguro</small></li>
             </ul>
-            <p class="pacote-total">a partir de <b>R$&nbsp;3.150</b> + <b>R$&nbsp;1.710</b> por mês</p>
-            <a class="botao botao-linha" href="https://wa.me/5561996672610?text=Ol%C3%A1%2C%20Fam%C3%ADlia%20Linu%21%20Quero%20um%20or%C3%A7amento%20do%20pacote%20Tudo%20junto%3A%20Site%20de%20apresenta%C3%A7%C3%A3o%2C%20Plano%20No%20ar%2C%20Logo%20e%20identidade%20visual%2C%20Gest%C3%A3o%20mensal%20de%20Instagram%2C%20An%C3%BAncios%20no%20Instagram%20e%20no%20Facebook%2C%20Check-up%20de%20seguran%C3%A7a%2C%20C%C3%B3pias%20de%20seguran%C3%A7a%20autom%C3%A1ticas%2C%20Vigia.%20Estimativa%20pela%20p%C3%A1gina%3A%20a%20partir%20de%20R%24%203.150%20%2B%20R%24%201.710%20por%20m%C3%AAs." target="_blank" rel="noopener">Pedir este pacote</a>
+            <p class="rota-total">a partir de <b>R$&nbsp;3.150</b> + <b>R$&nbsp;1.710</b> por mês</p>
+            <a class="botao botao-linha" href="https://wa.me/5561996672610?text=Ol%C3%A1%2C%20Fam%C3%ADlia%20Linu%21%20Quero%20um%20or%C3%A7amento%20da%20rota%20Tudo%20junto%3A%20Site%20de%20apresenta%C3%A7%C3%A3o%2C%20Plano%20No%20ar%2C%20Logo%20e%20identidade%20visual%2C%20Gest%C3%A3o%20mensal%20de%20Instagram%2C%20An%C3%BAncios%20no%20Instagram%20e%20no%20Facebook%2C%20Check-up%20de%20seguran%C3%A7a%2C%20C%C3%B3pias%20de%20seguran%C3%A7a%20autom%C3%A1ticas%2C%20Vigia.%20Estimativa%20pela%20p%C3%A1gina%3A%20a%20partir%20de%20R%24%203.150%20%2B%20R%24%201.710%20por%20m%C3%AAs." target="_blank" rel="noopener">Pedir esta rota</a>
           </article>
         </div>
-        <p class="pacotes-nota">Valores de referência, “a partir de”, os mesmos de cada site. O preço certo vem numa proposta só,
-          por escrito. A verba dos anúncios é à parte e vai direto para o Meta ou o Google.</p>
+        <p class="rotas-nota">Valores de referência, “a partir de”, os mesmos de cada site. O preço certo vem numa proposta só, por
+          escrito. A verba dos anúncios é à parte e vai direto para o Meta ou o Google.</p>
       </div>
     </section>
 
-    <section class="secao secao-gelo" id="como">
+    <section class="secao secao-mar" id="como">
       <div class="dentro">
         <h2>Uma conversa só</h2>
-        <p class="secao-sub">Juntar os irmãos não quer dizer falar com três equipes.</p>
+        <p class="secao-sub">Visitar várias ilhas não quer dizer falar com três equipes.</p>
         <ol class="passos">
           <li><b>Você conta o negócio</b><span>Pelo WhatsApp ou por e-mail, uma vez, para a família toda.</span></li>
-          <li><b>Chega uma proposta</b><span>Com o que cada irmão faz, o prazo e o preço de cada parte, num documento só.</span></li>
+          <li><b>Chega o mapa da viagem</b><span>Uma proposta com o que cada irmão faz, o prazo e o preço de cada parte.</span></li>
           <li><b>Cada um faz a sua parte</b><span>Site, redes e segurança andando juntos, e nada vai ao ar sem você aprovar.</span></li>
         </ol>
       </div>
@@ -214,7 +223,7 @@
       <div class="dentro chamada-identidade">
         <div>
           <h2>A identidade da família</h2>
-          <p class="secao-sub">O Linu em pixel art, as cores, as letras, o objeto de cada irmão e o que nunca entra.</p>
+          <p class="secao-sub">O Linu em pixel art, as cores, as letras, a casa de cada irmão e o que nunca entra.</p>
         </div>
         <div>
           <ul class="chamada-cores" aria-hidden="true">
@@ -227,15 +236,18 @@
     </section>
 
     <section class="secao contato" id="contato">
-      <div class="dentro">
-        <h2>Fale com a família</h2>
-        <p>Conte o negócio e o que você quer, mesmo que ainda seja só uma ideia. A resposta diz qual irmão (ou quais) faz
-          sentido para você.</p>
-        <p class="contato-canais">WhatsApp (61) 99667-2610<br>contato@linupedia.com.br</p>
-        <div class="botoes">
-          <a class="botao botao-whatsapp" href="https://wa.me/5561996672610?text=Ol%C3%A1%2C%20Fam%C3%ADlia%20Linu%21%20Quero%20conversar%20sobre%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Mandar pelo WhatsApp</a>
-          <a class="botao botao-linha-clara" href="mailto:contato@linupedia.com.br?subject=Fam%C3%ADlia%20Linu">Mandar por e-mail</a>
+      <div class="dentro contato-dentro">
+        <div>
+          <h2>Fale com a família</h2>
+          <p>Conte o negócio e o que você quer, mesmo que ainda seja só uma ideia. A resposta diz qual ilha (ou quais) faz
+            sentido para você.</p>
+          <p class="contato-canais">WhatsApp (61) 99667-2610<br>contato@linupedia.com.br</p>
+          <div class="botoes">
+            <a class="botao botao-whatsapp" href="https://wa.me/5561996672610?text=Ol%C3%A1%2C%20Fam%C3%ADlia%20Linu%21%20Quero%20conversar%20sobre%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Mandar pelo WhatsApp</a>
+            <a class="botao botao-linha-clara" href="mailto:contato@linupedia.com.br?subject=Fam%C3%ADlia%20Linu">Mandar por e-mail</a>
+          </div>
         </div>
+        <img class="pixel contato-linu" src="img/linu-frente.png" alt="O Linu, de frente, esperando a sua mensagem" width="172" height="190" loading="lazy">
       </div>
     </section>
   </main>
@@ -243,7 +255,7 @@
   <footer class="rodape">
     <div class="dentro rodape-dentro">
       <p><b>Família Linu</b>: o Linu Sites, o Digital Linu, o Linu Seguro e a LinuPedia.</p>
-      <nav class="rodape-links" aria-label="Os irmãos">
+      <nav class="rodape-links" aria-label="As ilhas">
         <a href="https://sites.linupedia.com.br/">Linu Sites</a>
         <a href="https://digital.linupedia.com.br/">Digital Linu</a>
         <a href="https://seguro.linupedia.com.br/">Linu Seguro</a>

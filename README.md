@@ -13,31 +13,37 @@ o GitHub Actions entrega o site na VM da Oracle e o Caddy serve o subdomínio (d
 
 | Arquivo / pasta | O que tem |
 |---|---|
-| `index.html` | A página: abertura com o Linu e o álbum, os irmãos (o álbum de fotos), por onde começar, os pacotes da família, uma conversa só, a chamada da identidade e o contato. |
+| `index.html` | A página: o mapa das ilhas na abertura (com os nomes por cima), a legenda (as ilhas), para onde ir, as rotas da família (os pacotes que passam por mais de uma ilha), uma conversa só, a chamada da identidade e o contato. |
 | `identidade.html` | A identidade visual da família, em `/identidade`. O `/identidade` do Linu Sites, do Digital Linu e do Linu Seguro leva para cá. A fonte é o `IDENTIDADE-LINU.md` do linuarquivos: mudou lá, muda aqui. |
 | `404.html` | Página de erro. |
-| `css/estilo.css` | Visual, com as três versões (celular até 699 px, tablet até 1099 px, computador) e o modo claro e escuro. |
+| `css/estilo.css` | Visual da carta náutica, com as três versões e o modo claro e escuro. |
+| `css/marcas.css` | A posição dos nomes das ilhas por cima do mapa, em porcentagem (gerada junto com o `index.html`). |
+| `css/fontes-pixel.css` | A Pixelify Sans dos títulos, servida pelo próprio site (`fontes/pixelify-sans-*.woff2`, licença em `fontes/OFL-pixelify.txt`). |
 | `js/tema-inicio.js` | Aplica o tema escolhido antes de pintar. |
 | `js/familia.js` | O botão do tema, o copiar das cores (na identidade) e as entradas ao rolar. |
-| `img/` | O Linu (`linu-frente.png`; `linu-album.png`, com o álbum), a estação do Linu Sites de dia e de noite, o iglu do Linu Seguro, os ícones e a imagem de compartilhar. |
-| `fontes/` | Nunito (licença OFL, `OFL.txt`), servida pelo próprio site. |
-| `arte/` | O pedido da pose do Linu com o álbum, feito pela API de imagens a partir do `linu-frente.png` (a tentativa aprovada em `aprovada.json`; as tentativas ficam fora do git). |
-| `ferramentas/compartilhar/` | A imagem de compartilhar (`img/compartilhar.png`, 1200 × 630): `node ferramentas/compartilhar/gerar.mjs`. |
+| `img/mapa-*.png` | O mapa em pixel art: largo (384 × 216, mostrado em 2× ou 3×) e alto (176 × 312, em 2×), de dia e de noite. |
+| `img/ilha-*.png` | Cada ilha recortada do mapa largo (a legenda); as `-p` são a metade, reduzidas por média, para as rotas. |
+| `img/` (o resto) | O Linu (`linu-frente.png`, `linu-album.png`), os ícones e a imagem de compartilhar. |
+| `fontes/` | Nunito (texto) e Pixelify Sans (títulos), licença OFL. |
+| `arte/` | Os pedidos à API de imagens: o mapa de dia com cinco ilhas, com sete (`-dia7`, o que vale) e de noite, e o Linu com o álbum. A tentativa aprovada de cada um está em `aprovada.json`; as tentativas ficam fora do git. |
+| `ferramentas/compartilhar/` | A imagem de compartilhar (`img/compartilhar.png`): `node ferramentas/compartilhar/gerar.mjs`. |
 | `deploy/` | A publicação na VM: o `receber.sh`, a preparação, o bloco do Caddy, a conferência das páginas e o `ORACLE.md`. |
 | `IDENTIDADE.md` | O objeto e a cor deste site. |
 | `DIRETRIZES-UX.md` | As diretrizes de interface e desempenho de todos os projetos. |
 
 ## O que a página faz
 
-- **O álbum dos irmãos:** uma foto de cada, presa com fita, com o objeto dele (a estação, o visor, o iglu, o caderno),
-  o preço de entrada e o link. A estação do Linu Sites troca de dia para noite com o tema.
-- **Por onde começar:** quatro frases (“Ainda não apareço na internet”, “Tenho medo de golpe”…), cada uma levando ao
-  irmão certo ou ao Raio-X dele.
-- **Pacotes da família:** só os que juntam os irmãos (Abrir as portas, Crescer com segurança, Tudo junto), cada item com
-  a etiqueta de quem faz e o preço de referência do site dele. Os pacotes de um serviço só ficam no site de cada irmão.
-  O botão abre o WhatsApp com a mensagem pronta (funciona sem JavaScript). **Mudou um preço num irmão, muda aqui:** os
-  itens e os totais estão escritos no `index.html`.
-- **Uma conversa só:** um contato, uma proposta, cada irmão faz a sua parte.
+- **O mapa das ilhas:** sete ilhas, uma por irmão (a estação do Linu Sites, o estúdio do Digital Linu, o iglu do Linu
+  Seguro, o acampamento da LinuPedia), a casa da Família no meio com o Linu no cais e duas ilhas vagas para os irmãos
+  que vierem. De noite, as janelas acendem e aparece a aurora. O mapa é pixel art de verdade: a grade fica fixa e a
+  página só mostra em 2× ou 3× exatos (o largo a partir de 800 px, em 3× a partir de 1200 px; o alto no celular).
+- **Os nomes por cima:** HTML, não desenho; cada um leva ao site do irmão. Para mudar de lugar, o `index.html` é gerado
+  com a posição de cada nome na grade e escreve o `css/marcas.css`.
+- **As ilhas (a legenda), para onde ir e as rotas:** as rotas são os pacotes que passam por mais de uma ilha, com as
+  paradas, os itens com a etiqueta de quem faz e o total. **Mudou um preço num irmão, muda aqui** (os itens e os totais
+  estão escritos no `index.html`).
+- **Irmão novo:** ocupa uma ilha vaga: pedir à API a ilha com a casa dele a partir do `img/mapa-*` atual (de dia e de
+  noite), levar para a grade, e trocar a placa “Ilha vaga” pelo nome e o link.
 
 ## Ver no computador
 

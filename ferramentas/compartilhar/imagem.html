@@ -1,30 +1,22 @@
 <!DOCTYPE html>
-<!-- A imagem de compartilhar da Família Linu (1200 × 630): o álbum com os quatro irmãos. Gerar de novo:
+<!-- A imagem de compartilhar da Família Linu (1200 × 630): o mapa das ilhas em 2× exato. Gerar de novo:
      node ferramentas/compartilhar/gerar.mjs -->
 <html lang="pt-BR" data-theme="light"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../css/fontes-pixel.css">
 <link rel="stylesheet" href="../../css/estilo.css">
 <style>
   html, body { margin: 0; }
-  body { width: 1200px; height: 630px; overflow: hidden; box-sizing: border-box; padding: 64px 70px; background: #1F2A44; color: #FFFFFF; display: grid; grid-template-columns: 1fr 560px; gap: 40px; align-items: center; border-bottom: 14px solid #2563EB; }
-  h1 { font-size: 92px; line-height: .95; margin: 0; font-weight: 900; }
-  h1 b { color: #93C5FD; }
-  .frase { font-size: 34px; line-height: 1.25; margin: 26px 0 0; color: #E2E8F0; }
-  .pe { font-size: 24px; color: #93C5FD; margin: 36px 0 0; font-weight: 800; }
-  .album { grid-template-columns: repeat(2, 1fr); gap: 26px 22px; }
-  .foto { padding: 9px 9px 12px; }
-  .foto .botao, .foto-legenda p { display: none; }
-  .foto-legenda { padding-top: 8px; }
-  .foto-legenda h3 { font-size: 22px; }
+  body { width: 1200px; height: 630px; overflow: hidden; box-sizing: border-box; padding: 0 30px 0 56px; grid-template-columns: 1fr 774px !important; display: grid; grid-template-columns: 1fr 774px; gap: 36px; align-items: center; }
+  h1 { font-size: 76px; line-height: 1; margin: 0; }
+  .frase { font-size: 28px; line-height: 1.3; margin: 22px 0 0; color: #475569; }
+  .pe { font: 500 24px "Pixelify Sans", sans-serif; color: #2563EB; margin: 30px 0 0; }
+  .mapa-largo { display: block; width: 774px !important; }
+  .mapa-largo img { width: 768px !important; height: 432px !important; }
 </style></head><body>
   <div>
-    <h1><b>Família</b> Linu</h1>
-    <p class="frase">O site, as redes e a segurança do seu negócio, da mesma família.</p>
+    <h1>Família Linu</h1>
+    <p class="frase">Site, redes e segurança: cada irmão na sua ilha.</p>
     <p class="pe">familia.linupedia.com.br</p>
   </div>
-  <ol class="album">
-    <li class="foto"><div class="foto-cena cena-sites"><img class="pixel dia" src="../../img/abrigo-estacao-dia.png" alt=""></div><div class="foto-legenda"><h3>Linu Sites</h3></div></li>
-    <li class="foto"><div class="foto-cena cena-digital"><span class="cena-rec">REC</span><img class="pixel" src="../../img/linu-frente.png" alt=""></div><div class="foto-legenda"><h3>Digital Linu</h3></div></li>
-    <li class="foto"><div class="foto-cena cena-seguro"><img class="pixel iglu" src="../../img/iglu.png" alt=""><img class="pixel linu" src="../../img/linu-frente.png" alt=""></div><div class="foto-legenda"><h3>Linu Seguro</h3></div></li>
-    <li class="foto"><div class="foto-cena cena-pedia"><img class="pixel" src="../../img/linu-frente.png" alt=""></div><div class="foto-legenda"><h3>LinuPedia</h3></div></li>
-  </ol>
+  <div class="mapa-largo"><img class="pixel" src="../../img/mapa-largo-dia.png" alt="" width="384" height="216"></div>
 </body></html>
