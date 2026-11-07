@@ -99,6 +99,10 @@ h2 { font-size: clamp(1.7rem, 4.5vw, 2.4rem); }
 .mapa-alto { width: 358px; }                   /* 176 × 2 + as bordas */
 .mapa-alto img { width: 352px; height: 624px; }
 .mapa-noite { position: absolute; top: 0; left: 0; display: none; }
+/* o Linu que anda no mapa (js/mapa-linu.js): 9 × 12 na grade, na mesma escala do mapa; à noite, mais escuro */
+.mapa-largo img.mapa-linu, .mapa-alto img.mapa-linu { position: absolute; top: 0; left: 0; width: 18px; height: 24px; pointer-events: none; }
+:root[data-theme="dark"] img.mapa-linu { filter: brightness(.72) saturate(.85); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) img.mapa-linu { filter: brightness(.72) saturate(.85); } }
 :root[data-theme="dark"] .mapa-noite { display: block; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mapa-noite { display: block; } }
 .marcas { position: absolute; inset: 0; }
@@ -124,7 +128,7 @@ a.marca-ilha:hover { background: #FDE68A; transform: translate(-50%, calc(-50% -
 .ilha-texto .ilha-preco { color: var(--tinta); font-weight: 800; }
 .ilha .botao { margin-top: 6px; }
 .vagas { display: flex; align-items: center; gap: 16px; margin: 28px 0 0; padding: 14px 16px; border: 3px dashed var(--borda); color: var(--tinta-suave); }
-.vagas img { width: 126px; flex: none; }   /* o Linu com o álbum em 1× */
+.vagas img { width: 122px; flex: none; }   /* o Linu com o álbum em 1× */
 .vagas b { color: var(--tinta); font-family: "Pixelify Sans", sans-serif; font-weight: 500; font-size: 1.15rem; }
 
 /* Para onde ir */
@@ -258,6 +262,7 @@ a.marca-ilha:hover { background: #FDE68A; transform: translate(-50%, calc(-50% -
 @media (min-width: 1200px) {
   .mapa-largo { width: 1158px; }
   .mapa-largo img { width: 1152px; height: 648px; }
+  .mapa-largo img.mapa-linu { width: 27px; height: 36px; }
   .marca-ilha { font-size: 1.1rem; padding: 3px 10px; }
 }
 /* ===== Computador (1100 px ou mais) ===== */
