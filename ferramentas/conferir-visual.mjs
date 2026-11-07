@@ -4,6 +4,8 @@
 //
 //   node conferir-visual.mjs --raiz <pasta do site> [--paginas /,/identidade] [--saida capturas]
 //                            [--playwright <pasta do pacote>] [--axe <axe.min.js>] [--larguras 390,820,1280]
+//                            [--ignorar <expressão>]   (mensagem conhecida do console que não reprova, como o
+//                            quadro do Café, que só aceita ser aberto pelo endereço real)
 //
 // No GitHub Actions: `npm i --no-save playwright@1.63.0 axe-core@4.10.3 && npx playwright install --with-deps chromium`
 // e depois este script; as capturas sobem como artefato. No computador, passe --playwright e --axe se não estiverem
@@ -21,6 +23,7 @@ const raiz = path.resolve(args.raiz || '.');
 const paginas = String(args.paginas || '/').split(',');
 const larguras = String(args.larguras || '390,820,1280').split(',').map(Number);
 const saida = path.resolve(args.saida || 'capturas');
+const ignorar = args.ignorar ? new RegExp(args.ignorar) : null;
 const exigir = createRequire(path.join(process.cwd(), 'x.js'));
 const { chromium } = args.playwright ? createRequire(import.meta.url)(path.resolve(args.playwright)) : exigir('playwright');
 const axe = fs.readFileSync(args.axe ? path.resolve(args.axe) : exigir.resolve('axe-core/axe.min.js'), 'utf8');
@@ -58,16 +61,17 @@ for (const pagina of paginas) {
       const erros = [];
       pg.on('pageerror', (e) => erros.push(e.message));
       pg.on('console', (m) => { if (m.type() === 'error' && !/404/.test(m.text())) erros.push(m.text()); });
-      await pg.goto(base + pagina, { waitUntil: 'networkidle' });
+      // 'load' e não 'networkidle': página com quadro de outro endereço (o Café no Linu Sites) nunca fica parada na rede
+      await pg.goto(base + pagina, { waitUntil: 'load' });
       // rola até o fim para as imagens com lazy-load carregarem, e volta
       await pg.evaluate(async () => {
         for (let y = 0; y < document.documentElement.scrollHeight; y += 600) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 40)); }
         scrollTo(0, 0);
       });
-      await pg.waitForLoadState('networkidle');
+      await pg.waitForLoadState('networkidle', { timeout: 5000 }).catch(() => {});
       const lateral = await pg.evaluate(() => document.documentElement.scrollWidth - innerWidth);
       if (lateral > 1) falhas.push(`${nome}: rolagem lateral de ${lateral} px`);
-      for (const e of erros) falhas.push(`${nome}: erro no console: ${e}`);
+      for (const e of erros) if (!ignorar || !ignorar.test(e)) falhas.push(`${nome}: erro no console: ${e}`);
       if (largura === larguras[0] || largura === larguras[larguras.length - 1]) {
         await pg.addScriptTag({ content: axe });
         const r = await pg.evaluate(async () => (await window.axe.run(document, { resultTypes: ['violations'] })).violations
