@@ -60,3 +60,5 @@ o GitHub Actions entrega o site na VM da Oracle e o Caddy serve o subdomínio (d
 ```bash
 python3 -m http.server 8000
 ```
+
+- **Contador de visitas do Farol (11/11/2026):** `js/farol-visitas.js` é cópia do `linu-farol/v.js` (mudou lá, muda aqui). Conta as visitas sem cookie; o CSP libera `https://farol.linupedia.com.br` no `connect-src` (na página e no Caddy). Os números ficam no painel da casa: https://farol.linupedia.com.br/p/casa-familia/.
