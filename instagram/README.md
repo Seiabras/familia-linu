@@ -57,5 +57,6 @@ Os preços são os “a partir de” de cada site em 11/11/2026: conferir antes 
 ## A bio
 
 - **Link:** https://familia.linupedia.com.br/links (a página de links da família, no lugar de um Linktree; `links.html`).
-- **Texto sugerido:** “A LinuPedia e a família Linu: estudar de graça, e site, redes e segurança para pequenos negócios,
-  cada um na sua ilha.”
+- **Texto (aplicado em 11/11/2026, com a voz do Linu):** “Um pinguim, seis ilhas e muito gelo. Aqui se estuda de graça e se
+  monta site, rede e segurança pro seu negócio. Escolhe a sua ilha ↓” (a primeira versão, descritiva, ficou sem
+  personalidade).
