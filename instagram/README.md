@@ -4,34 +4,33 @@ O começo do perfil da LinuPedia (11/11/2026), que é a vitrine da LinuPedia, da
 traz (`linuarquivos/INSTAGRAM.md`, seção 8). As peças saem de `ferramentas/instagram/mosaico.mjs`; não editar as
 imagens à mão.
 
-## O mosaico 3 × 3
+## O mosaico 3 × 2
 
-No perfil, nove posts formam o mapa das ilhas, com as pontes passando de um quadro para o outro. Cada quadro tem
-1080 × 1440 (o 3:4 da grade do perfil, sem corte). As duas linhas de baixo são os seis irmãos; a linha de cima fica
-para depois.
+O design do perfil (a Antártica do Linu: a geleira, o mar, os icebergs, as cores e as letras) está no
+[`DESIGN.md`](DESIGN.md). No perfil, seis posts formam o mapa das ilhas, com as pontes passando de um quadro para o
+outro. Cada quadro tem 1080 × 1440 (o 3:4 da grade do perfil, sem corte).
 
 | | coluna 1 | coluna 2 | coluna 3 |
 |---|---|---|---|
-| linha 0 (depois) | `quadro-00` | `quadro-01` | `quadro-02` |
-| linha 1 | Linu Sites (`quadro-10`) | Família Linu (`quadro-11`) | Digital Linu (`quadro-12`) |
-| linha 2 | Linu Seguro (`quadro-20`) | LinuPedia (`quadro-21`) | Linu Farol (`quadro-22`) |
+| linha de cima (com a geleira) | Linu Sites (`quadro-00`) | Família Linu (`quadro-01`) | Digital Linu (`quadro-02`) |
+| linha de baixo | Linu Seguro (`quadro-10`) | LinuPedia (`quadro-11`) | Linu Farol (`quadro-12`) |
 
-`grade.png` é a prévia do perfil inteiro.
+`grade.png` é a prévia do perfil.
 
 ## A ordem de postar
 
 O Instagram põe o post mais novo em cima à esquerda, então o mosaico se posta **de trás para frente**, sempre em
 múltiplos de 3 (um post solto no meio desloca o desenho todo):
 
-1. Linu Farol (`quadro-22`)
-2. LinuPedia (`quadro-21`)
-3. Linu Seguro (`quadro-20`)
-4. Digital Linu (`quadro-12`)
-5. Família Linu (`quadro-11`)
-6. Linu Sites (`quadro-10`)
+1. Linu Farol (`quadro-12`)
+2. LinuPedia (`quadro-11`)
+3. Linu Seguro (`quadro-10`)
+4. Digital Linu (`quadro-02`)
+5. Família Linu (`quadro-01`)
+6. Linu Sites (`quadro-00`)
 
-Depois, a linha de cima (três posts de uma vez, também da direita para a esquerda). Cada post é um carrossel de dois
-slides: o quadro do mosaico e o `detalhe-<irmão>.png` (o que faz, o preço “a partir de” e o endereço).
+Cada post é um carrossel de dois slides: o quadro do mosaico e o `detalhe-<irmão>.png` (o que faz, o preço “a partir
+de” e o endereço).
 
 - **Publicar pelo app do celular**, escolhendo o tamanho original (3:4): pelo computador, o Instagram pode cortar em 4:5
   e o desenho perde a continuidade entre os quadros.

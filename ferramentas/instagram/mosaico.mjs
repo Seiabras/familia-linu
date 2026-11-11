@@ -1,10 +1,11 @@
-// O mosaico do Instagram da LinuPedia (11/11/2026): o mapa das ilhas da Família Linu montado numa grade 3 × 3, uma ilha
+// O mosaico do Instagram da LinuPedia (11/11/2026): o mapa das ilhas da Família Linu montado numa grade 3 × 2, uma ilha
 // por quadro, com pontes que passam de um quadro para o outro. No perfil, os nove posts formam um arquipélago só; cada
 // post sozinho é a ilha de um irmão, com a placa do nome. As ilhas são as mesmas do site (img/ilha-*.png), recortadas
-// do mar e postas num mar de faixas, como o mapa alto; tudo em pixel art de verdade: a grade é de 540 × 720 e cada
-// quadro (180 × 240) sai em 6×, 1080 × 1440 (o 3:4 da grade do perfil, sem corte).
+// do mar e postas no mar da Antártica (instagram/DESIGN.md): a geleira em cima, faixas de água que ondulam, icebergs
+// e marolas em fileira. Tudo em pixel art de verdade: a grade é de 540 × 480 e cada quadro (180 × 240) sai em 6×,
+// 1080 × 1440 (o 3:4 da grade do perfil, sem corte).
 //
-// Saída em instagram/mosaico/: quadro-<linha><coluna>.png (os nove), detalhe-<irmão>.png (o segundo slide de cada
+// Saída em instagram/mosaico/: quadro-<linha><coluna>.png (os seis), detalhe-<irmão>.png (o segundo slide de cada
 // post) e grade.png (a prévia do perfil). A ordem de postar está no instagram/README.md.
 // Rodar:  node ferramentas/instagram/mosaico.mjs
 import { createRequire } from 'node:module';
@@ -22,26 +23,26 @@ const ESCALA = 6;
 const QW = 180, QH = 240; // um quadro na grade do pixel art
 
 // As ilhas: o quadro (linha, coluna), a casa, o texto do segundo slide e o endereço. Os textos são os do site
-// (index.html, a legenda das ilhas); os preços, os mesmos de cada irmão. A linha 0 fica para depois.
+// (index.html, a legenda das ilhas); os preços, os mesmos de cada irmão.
 const ILHAS = [
-  { id: 'sites', nome: 'Linu Sites', casa: 'A estação', q: [1, 0], dx: -6, dy: -4, cor: '#1D4ED8',
+  { id: 'sites', nome: 'Linu Sites', casa: 'A estação', q: [0, 0], dx: -6, dy: -4, cor: '#1D4ED8',
     texto: 'Onde a planta é desenhada: sites, sistemas e aplicativos sob medida, para o celular, o tablet e o computador.',
     preco: 'Site a partir de R$ 1.200', link: 'sites.linupedia.com.br' },
-  { id: 'familia', nome: 'Família Linu', casa: 'A casa do meio', q: [1, 1], dx: 0, dy: 2, cor: '#2563EB',
+  { id: 'familia', nome: 'Família Linu', casa: 'A casa do meio', q: [0, 1], dx: 0, dy: 2, cor: '#2563EB',
     texto: 'A casa que junta os irmãos. As pontes são as rotas: pacotes que passam por mais de uma ilha, com uma conversa só.',
     preco: 'Rotas a partir de R$ 2.100', link: 'familia.linupedia.com.br' },
-  { id: 'digital', nome: 'Digital Linu', casa: 'O estúdio', q: [1, 2], dx: 6, dy: -6, cor: '#C2410C',
+  { id: 'digital', nome: 'Digital Linu', casa: 'O estúdio', q: [0, 2], dx: 6, dy: -6, cor: '#C2410C',
     texto: 'Vídeo, redes sociais, anúncios, marca e automação para pequenos negócios.',
     preco: 'Serviços a partir de R$ 200', link: 'digital.linupedia.com.br' },
-  { id: 'seguro', nome: 'Linu Seguro', casa: 'O iglu', q: [2, 0], dx: -4, dy: 0, cor: '#0E7490',
+  { id: 'seguro', nome: 'Linu Seguro', casa: 'O iglu', q: [1, 0], dx: -4, dy: 0, cor: '#0E7490',
     texto: 'Golpes, senhas, cópias de segurança, e\u2011mail e site protegidos, bloco por bloco.',
     preco: 'Serviços a partir de R$ 250', link: 'seguro.linupedia.com.br' },
-  { id: 'pedia', nome: 'LinuPedia', casa: 'O acampamento', q: [2, 1], dx: 2, dy: 4, cor: '#2563EB',
+  { id: 'pedia', nome: 'LinuPedia', casa: 'O acampamento', q: [1, 1], dx: 2, dy: 4, cor: '#2563EB',
     // a ponta da ilha vizinha, em cima à direita, encosta nos pinheiros: some à mão
     apagar: [[100, 0, 26, 17], [78, 0, 9, 13], [97, 0, 3, 13], [87, 0, 10, 4]],
     texto: 'Onde o Linu nasceu: idiomas e áreas do conhecimento para estudar de graça, sem propaganda.',
     preco: 'Gratuita', link: 'linupedia.com.br' },
-  { id: 'farol', nome: 'Linu Farol', casa: 'O farol', q: [2, 2], dx: 4, dy: -2, cor: '#B91C1C',
+  { id: 'farol', nome: 'Linu Farol', casa: 'O farol', q: [1, 2], dx: 4, dy: -2, cor: '#B91C1C',
     texto: 'O painel do mês: o site no ar, o cadeado, a rapidez, as trancas, as visitas, o Google e o Instagram.',
     preco: 'Painel a partir de R$ 50 por mês', link: 'farol.linupedia.com.br' },
 ];
@@ -54,21 +55,62 @@ const fontes = `
 @font-face { font-family: N; src: url(${dado('fontes/nunito-latin.woff2', 'font/woff2')}) format('woff2'); font-weight: 200 1000; }
 @font-face { font-family: N; src: url(${dado('fontes/nunito-latin-ext.woff2', 'font/woff2')}) format('woff2'); font-weight: 200 1000; unicode-range: U+0100-024F; }`;
 
-/** Desenha o mapa (540 × 720) num canvas da página e devolve o PNG em data URL, mais o centro de cada ilha. */
+const LINHAS = 2;
+/** Desenha o mapa (540 × 480) num canvas da página e devolve o PNG em data URL. */
 async function desenharMapa(p) {
-  return p.evaluate(async ({ ILHAS, PONTES, QW, QH, sprites }) => {
+  return p.evaluate(async ({ ILHAS, PONTES, QW, QH, LINHAS, sprites }) => {
     const carregar = (src) => new Promise((ok) => { const i = new Image(); i.onload = () => ok(i); i.src = src; });
-    const W = QW * 3, H = QH * 3;
+    const W = QW * 3, H = QH * LINHAS;
     const c = document.createElement('canvas'); c.width = W; c.height = H;
     const g = c.getContext('2d'); g.imageSmoothingEnabled = false;
-    // o mar em faixas, como o mapa alto (três tons, sem degradê)
-    const TONS = ['#4477AC', '#4C80B5', '#5D94C5'];
-    for (let y = 0, k = 0; y < H; y += 20, k++) { g.fillStyle = TONS[k % 3]; g.fillRect(0, y, W, 20); }
-    // marolas: tracinhos claros, sempre nos mesmos lugares
     let s = 7;
     const sorte = () => (s = (s * 16807) % 2147483647) / 2147483647;
-    g.fillStyle = '#99C8E1';
-    for (let i = 0; i < 70; i++) { const x = Math.floor(sorte() * (W - 8)), y = Math.floor(sorte() * (H - 4)); g.fillRect(x, y, 2, 1); g.fillRect(x + 2, y - 1, 2, 1); g.fillRect(x + 4, y, 2, 1); }
+    const px = (x, y, w, h, cor) => { g.fillStyle = cor; g.fillRect(x, y, w, h); };
+    // a geleira no alto: a borda sobe e desce em degraus de 3 px, como pixel art
+    const borda = (x) => 30 + 3 * Math.round((6 * Math.sin(x / 37) + 4 * Math.sin(x / 13 + 1)) / 3);
+    // o mar: faixas de quatro tons, da água de degelo (perto da geleira) ao fundo, com a divisa ondulando
+    const MAR = ['#4FA3D6', '#3D8CC6', '#3278B4', '#2A66A0', '#24578C'];
+    for (let x = 0; x < W; x++) for (let y = 0; y < H; y++) {
+      const d = y - borda(x) + 9 * Math.sin(x / 23 + y / 50) + 3 * Math.sin(x / 7);
+      px(x, y, 1, 1, MAR[Math.max(0, Math.min(MAR.length - 1, Math.floor(d / 88)))]);
+    }
+    // marolas em fileiras desencontradas, nunca ao acaso no meio de tudo
+    for (let fy = 54, f = 0; fy < H - 4; fy += 22, f++) for (let fx = (f % 2) * 30 + 8; fx < W - 8; fx += 60) {
+      const x = fx + Math.floor(sorte() * 14), y = fy + Math.floor(sorte() * 6);
+      px(x, y, 3, 1, '#7DBDE3'); px(x + 3, y - 1, 3, 1, '#A9D6EF'); px(x + 6, y, 3, 1, '#7DBDE3');
+    }
+    // a geleira: neve em cima, a parede de gelo com fendas, a linha escura e a espuma na água
+    for (let x = 0; x < W; x++) {
+      const b = borda(x);
+      px(x, 0, 1, b - 12, '#F4FBFF');
+      px(x, b - 12, 1, 12, x % 9 === 0 || (x + 4) % 13 === 0 ? '#8CC2E2' : '#C4E6F6');
+      px(x, b - 12, 1, 1, '#FFFFFF');
+      px(x, b, 1, 1, '#1F4E7A');
+      if ((x >> 2) % 3) px(x, b + 2, 1, 1, '#E8F6FC');
+    }
+    // montinhos de neve e sombra na geleira
+    for (let i = 0; i < 26; i++) { const x = Math.floor(sorte() * (W - 12)), y = 4 + Math.floor(sorte() * 10); px(x, y, 10, 1, '#DCEFF9'); px(x + 2, y - 1, 6, 1, '#FFFFFF'); }
+    // pinguins na beira da geleira (pequenos, de frente): a casa do Linu
+    for (const x of [44, 130, 268, 402, 470]) {
+      const y = borda(x) - 19;
+      px(x, y, 3, 5, '#1B2433'); px(x + 1, y + 2, 1, 3, '#F4FBFF'); px(x + 1, y + 1, 1, 1, '#F59E0B'); px(x, y + 5, 3, 1, '#F59E0B');
+    }
+    // icebergs: mesa branca, lado azul, contorno e o reflexo na água
+    const iceberg = (x, y, w, alto) => {
+      // o topo em degraus até um pico, o lado iluminado e o da sombra, a linha d'água e o reflexo
+      const pico = Math.floor(w * 0.4);
+      for (let i = 0; i < w; i++) {
+        const t = Math.max(0, alto - Math.floor(Math.abs(i - pico) * alto / Math.max(pico, w - pico) / 2) * 2);
+        px(x + i, y - t - 1, 1, t + 7, '#1F4E7A');
+        px(x + i, y - t, 1, t, i < pico ? '#F4FBFF' : '#C4E6F6');
+        px(x + i, y, 1, 5, i < pico ? '#9FD3EF' : '#7DBDE3');
+      }
+      px(x, y, w, 1, '#FFFFFF');
+      px(x + 2, y + 7, w - 4, 1, '#A9D6EF');
+    };
+    for (const [x, y, w, a] of [[18, 368, 26, 10], [498, 150, 20, 8], [238, 92, 12, 4], [156, 404, 18, 6], [372, 412, 24, 8], [336, 214, 10, 4], [64, 286, 10, 4], [452, 300, 8, 3]]) iceberg(x, y, w, a);
+    // gelo picado boiando
+    for (const [x, y] of [[100, 350], [108, 356], [300, 420], [470, 380], [30, 200], [262, 300], [522, 460]]) { px(x, y, 4, 2, '#E8F6FC'); px(x, y + 2, 4, 1, '#7DBDE3'); }
 
     // cada ilha recortada do mar do site: some o azul ligado à borda; fica areia, espuma e casa
     const recortar = (img, apagar = []) => {
@@ -105,7 +147,7 @@ async function desenharMapa(p) {
     const ilhas = {};
     for (const il of ILHAS) {
       const r = recortar(await carregar(sprites[il.id]), il.apagar);
-      const cx = il.q[1] * QW + QW / 2 + il.dx, cy = il.q[0] * QH + 100 + il.dy;
+      const cx = il.q[1] * QW + QW / 2 + il.dx, cy = il.q[0] * QH + (il.q[0] ? 100 : 118) + il.dy;
       ilhas[il.id] = { ...r, x: Math.round(cx - r.w / 2), y: Math.round(cy - r.h / 2), cx, cy };
     }
     // a água rasa em volta de cada ilha: dois anéis, pintados antes das pontes
@@ -135,21 +177,18 @@ async function desenharMapa(p) {
       else { const x = Math.round((A.cx + B.cx) / 2) - 5; tabua(x, Math.round(A.cy), 10, Math.round(B.cy - A.cy), false); }
     }
     for (const il of Object.values(ilhas)) g.drawImage(il.k, il.x, il.y);
-    // blocos de gelo boiando, alguns na linha de cima (que fica para depois)
-    const gelo = (x, y, w, h) => { g.fillStyle = '#99C8E1'; g.fillRect(x + 1, y + 2, w, h); g.fillStyle = '#E8F6FC'; g.fillRect(x, y, w, h); g.fillStyle = '#FFFFFF'; g.fillRect(x + 1, y, w - 3, 1); };
-    for (const [x, y, w, h] of [[30, 60, 14, 6], [52, 70, 6, 4], [400, 150, 12, 6], [300, 40, 8, 4], [470, 300, 10, 5], [20, 420, 9, 5], [250, 470, 7, 4], [500, 560, 12, 6], [140, 690, 10, 5], [380, 690, 8, 4]]) gelo(x, y, w, h);
     return c.toDataURL('image/png');
-  }, { ILHAS, PONTES, QW, QH, sprites: Object.fromEntries(ILHAS.map((il) => [il.id, png(`ilha-${il.id}`)])) });
+  }, { ILHAS, PONTES, QW, QH, LINHAS, sprites: Object.fromEntries(ILHAS.map((il) => [il.id, png(`ilha-${il.id}`)])) });
 }
 
 const CSS = `${fontes}
 * { box-sizing: border-box; margin: 0; }
 html, body { width: 1080px; height: 1440px; overflow: hidden; }
-.mapa { position: absolute; width: ${QW * 3 * ESCALA}px; height: ${QH * 3 * ESCALA}px; image-rendering: pixelated; }
+.mapa { position: absolute; width: ${QW * 3 * ESCALA}px; height: ${QH * LINHAS * ESCALA}px; image-rendering: pixelated; }
 .placa { position: absolute; left: 50%; transform: translateX(-50%); bottom: 120px; padding: 18px 40px 22px; background: #FFF6DC; border: 8px solid #1F2A44; box-shadow: 12px 12px 0 #1F2A44; text-align: center; white-space: nowrap; }
 .placa b { display: block; font: 700 76px/1 P, monospace; color: #0F172A; }
 .placa span { display: block; margin-top: 10px; font: 700 34px/1 N, sans-serif; color: #475569; }
-.vez { position: absolute; left: 50%; transform: translateX(-50%); bottom: 150px; padding: 14px 30px; background: rgba(15, 23, 42, .55); font: 700 40px/1 P, monospace; color: #E8F6FC; }`;
+`;
 
 const b = await chromium.launch();
 const p = await b.newPage({ viewport: { width: 1080, height: 1440 } });
@@ -164,11 +203,11 @@ const foto = async (html, arq) => {
   await p.screenshot({ path: path.join(SAIDA, arq) });
 };
 
-// os nove quadros: o mesmo mapa, deslocado; a placa só nos que têm ilha
-for (let l = 0; l < 3; l++) for (let col = 0; col < 3; col++) {
+// os seis quadros: o mesmo mapa, deslocado, com a placa da ilha
+for (let l = 0; l < LINHAS; l++) for (let col = 0; col < 3; col++) {
   const il = ILHAS.find((x) => x.q[0] === l && x.q[1] === col);
   await foto(`<img class="mapa" src="${mapa}" style="left:${-col * QW * ESCALA}px;top:${-l * QH * ESCALA}px">
-    ${il ? `<div class="placa"><b>${esc(il.nome)}</b><span>${esc(il.casa)}</span></div>` : '<div class="vez">em breve</div>'}`, `quadro-${l}${col}.png`);
+    <div class="placa"><b>${esc(il.nome)}</b><span>${esc(il.casa)}</span></div>`, `quadro-${l}${col}.png`);
 }
 
 // o segundo slide de cada post: a carta náutica com a ilha grande, o que faz, o preço e o endereço
@@ -184,10 +223,10 @@ for (const il of ILHAS) {
     <p style="position:absolute;left:90px;right:90px;bottom:90px;font:700 50px/1 P,monospace;color:#1F2A44">${esc(il.link)}</p>`, `detalhe-${il.id}.png`);
 }
 
-// a prévia do perfil: os nove quadros na grade (3:4, com o vão de 3 px do Instagram)
-await p.setViewportSize({ width: 3 * 360 + 6, height: 3 * 480 + 6 });
+// a prévia do perfil: os seis quadros na grade (3:4, com o vão de 3 px do Instagram)
+await p.setViewportSize({ width: 3 * 360 + 6, height: LINHAS * 480 + 3 });
 const quadros = [];
-for (let l = 0; l < 3; l++) for (let col = 0; col < 3; col++) quadros.push(`<img src="${dado(`instagram/mosaico/quadro-${l}${col}.png`, 'image/png')}" style="position:absolute;left:${col * 363}px;top:${l * 483}px;width:360px;height:480px">`);
+for (let l = 0; l < LINHAS; l++) for (let col = 0; col < 3; col++) quadros.push(`<img src="${dado(`instagram/mosaico/quadro-${l}${col}.png`, 'image/png')}" style="position:absolute;left:${col * 363}px;top:${l * 483}px;width:360px;height:480px">`);
 await p.setContent(`<!doctype html><html><body style="margin:0;background:#fff">${quadros.join('')}</body></html>`);
 await p.screenshot({ path: path.join(SAIDA, 'grade.png') });
 await b.close();
