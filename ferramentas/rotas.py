@@ -71,7 +71,7 @@ def rotas_html(rotas, precos):
 {lis}
             </ul>
             <p class="rota-total">a partir de {soma(valores)}</p>
-            <a class="botao{'' if dest else ' botao-linha'}" href="https://wa.me/5561996672610?text={quote(msg)}" target="_blank" rel="noopener">Pedir esta rota</a>
+            <a class="botao{'' if dest else ' botao-linha'}" href="https://wa.me/5524981013398?text={quote(msg)}" target="_blank" rel="noopener">Pedir esta rota</a>
           </article>''')
     return '\n'.join(blocos)
 

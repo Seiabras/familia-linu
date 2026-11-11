@@ -62,3 +62,5 @@ python3 -m http.server 8000
 ```
 
 - **Contador de visitas do Farol (11/11/2026):** `js/farol-visitas.js` é cópia do `linu-farol/v.js` (mudou lá, muda aqui). Conta as visitas sem cookie; o CSP libera `https://farol.linupedia.com.br` no `connect-src` (na página e no Caddy). Os números ficam no painel da casa: https://farol.linupedia.com.br/p/casa-familia/.
+
+- **Contato (11/11/2026):** WhatsApp (24) 98101-3398; o contato ganhou um formulário (nome, e-mail, negócio e o que quer), que manda o pedido a `/api/pedido` com o e-mail da pessoa (chega no contato@ e no `/admin` da Família Linu; servidor em `linuarquivos/servidor/linu-pedidos`).

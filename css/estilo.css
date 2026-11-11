@@ -183,6 +183,27 @@ a.marca-ilha:hover { background: #FDE68A; transform: translate(-50%, calc(-50% -
 .contato-canais { font-weight: 700; }
 .botoes { display: flex; flex-wrap: wrap; gap: 14px; }
 .contato-linu { width: 172px; justify-self: center; }
+/* o formulário (11/11/2026): celular, uma coluna; tablet, o texto ao lado do Linu e o formulário embaixo, em duas
+   colunas; computador, texto, formulário e Linu lado a lado */
+.contato-form { display: grid; gap: 4px 16px; padding: 18px; background: #16203A; border: 3px solid #020617; box-shadow: 6px 6px 0 #020617; }
+.contato-form .campo { display: grid; gap: 6px; }
+.contato-form .campo:not(:has(.campo-erro))::after { content: ""; min-height: 1.2em; }  /* o mesmo respiro dos campos com aviso */
+.contato-form label { font: 500 1rem "Pixelify Sans", "Nunito", sans-serif; color: #FFFFFF; }
+.contato-form .opcional { font: 400 .85rem "Nunito", sans-serif; color: #A3B1C6; }
+.contato-form input, .contato-form textarea { width: 100%; min-height: 48px; padding: 10px 12px; border: 2px solid #7FA3CC; border-radius: 0; background: #0A1628; color: #FFFFFF; font: inherit; transition: border-color .15s ease-out; }
+.contato-form textarea { resize: vertical; }
+.contato-form input::placeholder, .contato-form textarea::placeholder { color: #8695AD; }
+.contato-form input:focus, .contato-form textarea:focus { border-color: #93C5FD; outline: none; box-shadow: 0 0 0 2px #93C5FD; }
+.contato-form [aria-invalid="true"] { border-color: #FCA5A5; }
+.campo-erro { margin: 0; min-height: 1.2em; color: #FCA5A5; font-size: .9rem; font-weight: 700; }
+.contato-form .botoes { margin-top: 6px; }
+.contato .formulario-status { margin: 4px 0 0; font-weight: 700; }
+.formulario-status:empty { display: none; }
+.formulario-status.ok { color: #86EFAC; }
+.formulario-status.erro { color: #FCA5A5; }
+.contato .formulario-privacidade { margin: 8px 0 0; font-size: .82rem; color: #A3B1C6; }
+.contato-form .botao[disabled] { opacity: .7; cursor: progress; }
+.pote { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 
 /* Rodapé */
 .rodape { background: #111827; color: #CBD5E1; padding: 28px 0; font-size: .95rem; }
@@ -286,6 +307,8 @@ a.marca-ilha:hover { background: #FDE68A; transform: translate(-50%, calc(-50% -
   .passos li::before { grid-row: auto; margin-bottom: 8px; }
   .chamada-identidade { grid-template-columns: 1fr auto; }
   .contato-dentro { grid-template-columns: 1fr auto; }
+  .contato-form { grid-column: 1 / -1; grid-row: 2; grid-template-columns: 1fr 1fr; }
+  .contato-form .campo-largo { grid-column: 1 / -1; }
   .identidade-grade { grid-template-columns: repeat(2, 1fr); }
   .identidade-linu, .identidade-grade > .identidade-bloco:nth-child(2) { grid-column: 1 / -1; }
   .cores { grid-auto-flow: row; grid-template-columns: repeat(4, 1fr); overflow: visible; margin: 0; padding: 0; }
@@ -322,3 +345,10 @@ a.marca-ilha:hover { background: #FDE68A; transform: translate(-50%, calc(-50% -
 }
 .erro { min-height: 100vh; display: grid; align-items: center; }
 .sobretitulo { margin: 0 0 8px; color: var(--cor); font-weight: 800; }
+
+/* computador: texto, formulário e o Linu lado a lado (11/11/2026) */
+@media (min-width: 1100px) {
+  .contato-dentro { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) auto; align-items: start; }
+  .contato-form { grid-column: auto; grid-row: auto; }
+  .contato-linu { align-self: end; }
+}
