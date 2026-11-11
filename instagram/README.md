@@ -49,6 +49,11 @@ de” e o endereço).
 
 Os preços são os “a partir de” de cada site em 11/11/2026: conferir antes de postar.
 
+## O perfil
+
+- **Foto:** `foto-perfil.png` (o Linu de frente, em 4×, no azul da marca; o círculo do Instagram não corta os pés).
+- **Nome:** LinuPedia · Família Linu
+
 ## A bio
 
 - **Link:** https://familia.linupedia.com.br/links (a página de links da família, no lugar de um Linktree; `links.html`).
