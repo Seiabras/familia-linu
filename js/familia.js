@@ -115,7 +115,7 @@
       return p.join("\n");
     };
     var escrever = function () { whats.href = "https://wa.me/5524981013398?text=" + encodeURIComponent(texto()); };
-    ["nome", "email", "negocio", "mensagem"].forEach(function (k) {
+    ["nome", "email", "telefone", "negocio", "mensagem"].forEach(function (k) {
       var v = ler("familia-" + k);
       if (v) campo(k).value = v;
       campo(k).addEventListener("input", function () { guardar("familia-" + k, campo(k).value); if (regras[k]) conferir(k, false); escrever(); });
@@ -124,7 +124,7 @@
     escrever();
     var dados = function (canal) {
       var robo = form.querySelector('[name="site_extra"]');
-      return { nome: campo("nome").value.trim(), email: campo("email").value.trim(), negocio: campo("negocio").value.trim(),
+      return { nome: campo("nome").value.trim(), email: campo("email").value.trim(), telefone: campo("telefone").value.trim(), negocio: campo("negocio").value.trim(),
         mensagem: campo("mensagem").value.trim(), canal: canal, site_extra: robo ? robo.value : "" };
     };
     // o WhatsApp também fica registrado (sem esperar resposta: não atrasa a conversa)
