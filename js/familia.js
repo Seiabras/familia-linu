@@ -23,6 +23,13 @@
   sistemaEscuro.addEventListener("change", rotularTema);
   rotularTema();
 
+  /* Rotas (11/11/2026): no celular, a lista do que entra fica recolhida (o cartão inteiro passava de uma tela); do
+     tablet para cima, aberta. Sem JavaScript, fica aberta. */
+  var celular = window.matchMedia("(max-width: 699px)");
+  function ajustarRotas() { document.querySelectorAll(".rota-detalhe").forEach(function (d) { d.open = !celular.matches; }); }
+  ajustarRotas();
+  celular.addEventListener("change", ajustarRotas);
+
   /* 2. Identidade: tocar numa cor copia o código */
   var copiado = document.querySelector("[data-copiado]");
   var limparAviso;

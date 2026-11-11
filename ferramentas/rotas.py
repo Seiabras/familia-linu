@@ -67,9 +67,12 @@ def rotas_html(rotas, precos):
             <h3 class="rota-nome">Rota {r["nome"]}</h3>
             <p>{r["texto"]}</p>
             <ol class="rota-paradas" data-mov-grupo="lado" title="As ilhas desta rota">{stops}</ol>
-            <ul class="rota-itens">
+            <details class="rota-detalhe" open>
+              <summary>O que entra: {len(itens)} itens</summary>
+              <ul class="rota-itens">
 {lis}
-            </ul>
+              </ul>
+            </details>
             <p class="rota-total">a partir de {soma(valores)}</p>
             <a class="botao{'' if dest else ' botao-linha'}" href="https://wa.me/5524981013398?text={quote(msg)}" target="_blank" rel="noopener">Pedir esta rota</a>
           </article>''')

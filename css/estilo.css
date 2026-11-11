@@ -157,6 +157,15 @@ a.marca-ilha:hover { background: #FDE68A; transform: translate(-50%, calc(-50% -
 .rota-itens small { grid-column: 1 / -1; font-weight: 800; font-size: .8rem; }
 .rota-itens .valor { font-size: .92rem; color: var(--tinta-suave); white-space: nowrap; }
 .de-sites { color: var(--sites); } .de-digital { color: var(--digital); } .de-seguro { color: var(--seguro); }
+.rota-detalhe { flex: 1; }
+.rota-detalhe > summary { display: flex; align-items: center; justify-content: space-between; min-height: 44px; padding: 0 12px; margin-bottom: 8px; border: 2px solid var(--borda); background: var(--placa); font: 500 1rem "Pixelify Sans", sans-serif; cursor: pointer; list-style: none; transition: background-color .15s ease-out; }
+.rota-detalhe > summary::-webkit-details-marker { display: none; }
+.rota-detalhe > summary::after { content: "+"; font-size: 1.3rem; line-height: 1; transition: transform .2s ease-out; }
+.rota-detalhe[open] > summary::after { transform: rotate(45deg); }
+.rota-detalhe[open] .rota-itens { animation: abre-rota .2s ease-out; }
+@keyframes abre-rota { from { opacity: 0; transform: translateY(-6px); } }
+@media (min-width: 700px) { .rota-detalhe > summary { display: none; } }
+@media (prefers-reduced-motion: reduce) { .rota-detalhe[open] .rota-itens { animation: none; } .rota-detalhe > summary::after { transition: none; } }
 .rota-total { margin: 4px 0 0; font-size: 1.05rem; }
 .rota-total b { white-space: nowrap; }
 .rota .botao { align-self: flex-start; }
@@ -284,6 +293,7 @@ a.marca-ilha:hover { background: #FDE68A; transform: translate(-50%, calc(-50% -
   /* as ilhas e as rotas numa faixa que corre de lado, uma placa por vez, com a próxima aparecendo na beira */
   .ilhas, .rotas { grid-auto-flow: column; grid-auto-columns: 86%; align-items: stretch; margin: 0 -16px; padding: 4px 16px 18px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding: 0 16px; scrollbar-width: thin; }
   .ilhas > li, .rotas > .rota { scroll-snap-align: start; }
+  .rotas { align-items: start; } /* abrir o que entra de uma rota não estica as outras */
   .ilha { grid-template-columns: 1fr; align-content: start; }
   .ilha .botao { justify-self: start; }
   .faixa-dica { margin: -6px 0 14px; color: var(--tinta-suave); font: 500 .9rem "Pixelify Sans", sans-serif; }
