@@ -52,7 +52,7 @@ jobs:
           # o --with-deps passa pelo apt do Ubuntu; quando o espelho da máquina do GitHub não responde (11/11/2026, o
           # linu-sites reprovou três vezes assim), a imagem já traz as bibliotecas do navegador: instala só o Chromium
           npx playwright install --with-deps chromium || npx playwright install chromium
-          node ferramentas/conferir-visual.mjs --raiz . --paginas /,/identidade --saida capturas
+          node ferramentas/conferir-visual.mjs --raiz . --paginas /,/identidade,/links --saida capturas
       - name: Guardar as capturas
         if: always()
         uses: actions/upload-artifact@v4

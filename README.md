@@ -15,6 +15,7 @@ o GitHub Actions entrega o site na VM da Oracle e o Caddy serve o subdomínio (d
 |---|---|
 | `index.html` | A página: o mapa das ilhas na abertura (com os nomes por cima), a legenda (as ilhas), para onde ir, as rotas da família (os pacotes que passam por mais de uma ilha), uma conversa só, a chamada da identidade e o contato. |
 | `identidade.html` | A identidade visual da família, em `/identidade`. O `/identidade` do Linu Sites, do Digital Linu e do Linu Seguro leva para cá. A fonte é o `IDENTIDADE-LINU.md` do linuarquivos: mudou lá, muda aqui. |
+| `links.html` | **Os links da bio do Instagram** (11/11/2026), em `/links`: uma placa por ilha (a LinuPedia e os irmãos), os projetos que nasceram com eles e a conversa pelo WhatsApp, no lugar de um Linktree. No computador, o mapa fica parado à esquerda. |
 | `404.html` | Página de erro. |
 | `css/estilo.css` | Visual da carta náutica, com as três versões e o modo claro e escuro. |
 | `css/marcas.css` | A posição dos nomes das ilhas por cima do mapa, em porcentagem (gerada junto com o `index.html`). |
@@ -30,6 +31,7 @@ o GitHub Actions entrega o site na VM da Oracle e o Caddy serve o subdomínio (d
 | `ferramentas/conferir-visual.mjs` | A conferência visual que o Actions roda antes de publicar (cópia do `linuarquivos/modelos/ferramentas/`): 390, 820 e 1280 px, claro e escuro; reprova com rolagem lateral, erro no console, arquivo faltando ou falha séria de acessibilidade, e guarda as capturas como artefato. No computador: `node ferramentas/conferir-visual.mjs --raiz . --playwright <pasta do playwright> --axe <axe.min.js>`. |
 | `ferramentas/vigia.py` e `.github/workflows/vigia.yml` | O Vigia dos sites da família: a cada 30 minutos confere se os cinco endereços abrem, se são o site certo e se o certificado HTTPS não está para vencer; com problema, abre um aviso (issue) “Vigia: site com problema”, que o GitHub manda por e-mail, e fecha sozinho quando volta. Toda segunda, procura links quebrados nos quatro sites. |
 | `deploy/` | A publicação na VM: o `receber.sh`, a preparação, o bloco do Caddy, a conferência das páginas e o `ORACLE.md`. |
+| `instagram/` e `ferramentas/instagram/mosaico.mjs` | **O Instagram da LinuPedia** (11/11/2026): o mosaico 3 × 3 do mapa das ilhas (um post por irmão, com as pontes passando de um quadro para o outro), os segundos slides, a ordem de postar e as legendas (`instagram/README.md`). Não vai para o servidor. |
 | `IDENTIDADE.md` | O objeto e a cor deste site. |
 | `DIRETRIZES-UX.md` | As diretrizes de interface e desempenho de todos os projetos. |
 

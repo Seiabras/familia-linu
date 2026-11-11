@@ -352,3 +352,37 @@ a.marca-ilha:hover { background: #FDE68A; transform: translate(-50%, calc(-50% -
   .contato-form { grid-column: auto; grid-row: auto; }
   .contato-linu { align-self: end; }
 }
+
+/* Os links da bio do Instagram (/links, 11/11/2026): uma placa por ilha, com a ilha do mapa à esquerda. No celular,
+   uma coluna; no computador, o mapa fica parado à esquerda e as placas em duas colunas. */
+.links-dentro { padding-top: 24px; padding-bottom: 48px; }
+.links-abertura h1 { font: 500 clamp(2rem, 7vw, 2.8rem)/1.05 "Pixelify Sans", sans-serif; margin: 10px 0 8px; }
+.links-abertura p { margin: 0 0 16px; color: var(--tinta-suave); max-width: 38rem; }
+.links-linu { display: block; width: 86px; height: auto; }
+.links-mapa { display: block; width: 100%; max-width: 768px; height: auto; border: 3px solid var(--borda); box-shadow: 6px 6px 0 var(--sombra); }
+.links-grupo { margin-top: 32px; }
+.links-grupo h2 { font: 500 1.6rem/1.1 "Pixelify Sans", sans-serif; margin: 0 0 12px; }
+.links-lista { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.link-placa { display: flex; align-items: center; gap: 14px; min-height: 96px; padding: 10px 14px 10px 10px; background: var(--placa); color: var(--tinta); border: 3px solid var(--borda); box-shadow: 4px 4px 0 var(--sombra); text-decoration: none; transition: transform .15s ease-out, box-shadow .15s ease-out; }
+.link-placa:hover, .link-placa:focus-visible { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--sombra); }
+.link-placa:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--sombra); }
+.link-ilha { flex: none; display: grid; place-items: center; width: 112px; height: 80px; overflow: hidden; background: #3586C8; border: 2px solid var(--borda); }
+.link-ilha img { width: auto; height: auto; max-width: none; image-rendering: pixelated; }
+.link-ilha .link-ilha-2x { width: 124px; height: 100px; }
+.link-ilha-clara { background: #FEF8EF; }
+.link-ilha-clara img { width: 64px; height: auto; image-rendering: auto; }
+.link-texto { display: grid; gap: 2px; min-width: 0; }
+.link-texto b { font: 500 1.3rem/1.1 "Pixelify Sans", sans-serif; }
+.link-texto span { font-size: .95rem; color: var(--tinta-suave); }
+.links-nota { margin: 0 0 12px; color: var(--tinta-suave); }
+.links-acoes { display: flex; flex-wrap: wrap; gap: 12px; }
+@media (min-width: 760px) {
+  .links-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1100px) {
+  .links-dentro { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: 48px; align-items: start; }
+  .links-abertura { grid-column: 1; grid-row: 1 / span 3; position: sticky; top: 96px; }
+  .links-grupo { grid-column: 2; }
+  .links-abertura + .links-grupo { margin-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .link-placa { transition: none; } }
