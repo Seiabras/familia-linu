@@ -75,7 +75,7 @@ A mesma da família: direta, calorosa, sem jargão. O Linu fala pouco e mostra m
 
 ## Séries que cabem neste mundo
 
-- **Diário da Antártica:** curiosidades verdadeiras do continente e dos pinguins, com fonte (o Linu como guia).
+- **Diário da Antártica:** curiosidades verdadeiras do continente e dos pinguins, com fonte (o Linu como guia). Os três primeiros (11/11/2026) são a fileira de cima do perfil: as capas são o planalto, as montanhas e o céu, que continuam o mosaico para cima (`ferramentas/instagram/diario.mjs`).
 - **Uma ilha por vez:** o que cada irmão faz, com um caso real (só com o ok de quem é o cliente).
 - **De onde vem a palavra:** a curiosidade da LinuPedia, nas línguas do app.
 - **Bastidores da expedição:** como um projeto da família foi feito, do esboço ao ar.

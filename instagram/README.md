@@ -36,6 +36,18 @@ de” e o endereço).
   e o desenho perde a continuidade entre os quadros.
 - **Antes do primeiro post**, o perfil tem de estar vazio ou com um número de posts múltiplo de 3.
 
+## Diário da Antártica (a fileira de cima, 11/11/2026)
+
+Três carrosséis de curiosidade, com o Linu de guia (`ferramentas/instagram/diario.mjs`, saída em `instagram/diario/`).
+As capas são o planalto da geleira, as montanhas e o céu: no perfil, continuam o mosaico para cima. Os fatos têm fonte
+no último slide de cada um. Postar de trás para frente: **3, 2, 1**.
+
+| Ordem de postar | Post | Legenda |
+|---|---|---|
+| 1º | 3. Por que o pinguim não congela o pé? (6 slides) | O pé do pinguim fica quase na temperatura do gelo, e é justamente isso que salva o bicho. Arrasta para entender o truque. |
+| 2º | 2. De onde vem a palavra “pinguim”? (6 slides) | Ninguém sabe ao certo de onde vem “pinguim”. Tem duas pistas e um nome que era de outra ave. Arrasta e diz nos comentários: cabeça branca ou gordo? |
+| 3º | 1. Antártica quer dizer “sem urso”? (5 slides) | Antártica quer dizer “sem urso”? Quase. O nome vem do grego, e o urso está no céu. Arrasta para ver a virada. |
+
 ## As legendas
 
 | Post | Legenda |
