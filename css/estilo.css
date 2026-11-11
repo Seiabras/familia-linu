@@ -353,14 +353,16 @@ a.marca-ilha:hover { background: #FDE68A; transform: translate(-50%, calc(-50% -
   .contato-linu { align-self: end; }
 }
 
-/* Os links da bio do Instagram (/links, 11/11/2026): uma placa por ilha, com a ilha do mapa à esquerda. No celular,
-   uma coluna; no computador, o mapa fica parado à esquerda e as placas em duas colunas. */
+/* Os links da bio do Instagram (/links, 11/11/2026): uma placa por ilha, com a ilha do mapa à esquerda. No celular e
+   no tablet, os links primeiro e o mapa no fim; no computador, o mapa fica parado à esquerda e as placas em duas colunas. */
 .links-dentro { padding-top: 24px; padding-bottom: 48px; }
 .links-abertura h1 { font: 500 clamp(2rem, 7vw, 2.8rem)/1.05 "Pixelify Sans", sans-serif; margin: 10px 0 8px; }
 .links-abertura p { margin: 0 0 16px; color: var(--tinta-suave); max-width: 38rem; }
 .links-linu { display: block; width: 86px; height: auto; }
 .links-mapa { display: block; width: 100%; max-width: 768px; height: auto; border: 3px solid var(--borda); box-shadow: 6px 6px 0 var(--sombra); }
 .links-grupo { margin-top: 32px; }
+.links-mapa-lado { display: none; }
+.links-mapa-fim { margin-top: 36px; }
 .links-grupo h2 { font: 500 1.6rem/1.1 "Pixelify Sans", sans-serif; margin: 0 0 12px; }
 .links-lista { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
 .link-placa { display: flex; align-items: center; gap: 14px; min-height: 96px; padding: 10px 14px 10px 10px; background: var(--placa); color: var(--tinta); border: 3px solid var(--borda); box-shadow: 4px 4px 0 var(--sombra); text-decoration: none; transition: transform .15s ease-out, box-shadow .15s ease-out; }
@@ -384,5 +386,7 @@ a.marca-ilha:hover { background: #FDE68A; transform: translate(-50%, calc(-50% -
   .links-abertura { grid-column: 1; grid-row: 1 / span 3; position: sticky; top: 96px; }
   .links-grupo { grid-column: 2; }
   .links-abertura + .links-grupo { margin-top: 0; }
+  .links-mapa-lado { display: block; }
+  .links-mapa-fim { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .link-placa { transition: none; } }
