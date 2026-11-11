@@ -51,7 +51,7 @@ Os preços são os “a partir de” de cada site em 11/11/2026: conferir antes 
 
 ## O perfil
 
-- **Foto:** `foto-perfil.png` (o Linu de frente, em 4×, no azul da marca; o círculo do Instagram não corta os pés).
+- **Foto:** `foto-perfil.png` (o busto do Linu, em 6×, no azul da marca). Aplicada em 11/11/2026, com o nome e a bio.
 - **Nome:** LinuPedia · Família Linu
 
 ## A bio
