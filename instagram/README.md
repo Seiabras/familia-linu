@@ -40,7 +40,7 @@ de” e o endereço).
 
 Três carrosséis de curiosidade, com o Linu de guia (`ferramentas/instagram/diario.mjs`, saída em `instagram/diario/`).
 As capas são o planalto da geleira, as montanhas e o céu: no perfil, continuam o mosaico para cima. Os fatos têm fonte
-no último slide de cada um. Postar de trás para frente: **3, 2, 1**.
+no último slide de cada um. Postar de trás para frente: **3, 2, 1**. Publicados em 11/11/2026, na ordem certa: o perfil tem 9 posts, a fileira de cima é o Diário.
 
 | Ordem de postar | Post | Legenda |
 |---|---|---|
