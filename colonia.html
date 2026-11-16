@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Colônia do Linu</title>
+  <meta name="description" content="Uma série em pixel art no Instagram da LinuPedia: cada pessoa que segue ganha um pinguim na colônia do Linu, e a história conta como vivem os pinguins-de-barbicha de verdade.">
+  <!-- Protótipo (16/11/2026): fora do menu e do mapa do site até a série ser aprovada. -->
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#1F2A44">
+  <link rel="icon" href="img/linu-logo.png?v=04939f80" type="image/png" sizes="128x128">
+  <link rel="icon" href="img/icone-32.png?v=af06fd2b" type="image/png" sizes="32x32">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="preload" href="fontes/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="js/tema-inicio.js?v=b2e4d710"></script>
+  <link rel="stylesheet" href="css/fontes-pixel.css?v=5a3ab9f0">
+  <link rel="stylesheet" href="css/estilo.css?v=5ccaa806">
+  <link rel="stylesheet" href="css/colonia.css">
+  <script src="js/familia.js?v=a49119ed" defer></script>
+  <script src="js/colonia-pinguim.js" defer></script>
+  <script src="js/colonia.js" defer></script>
+</head>
+<body class="pagina-colonia">
+  <header class="topo">
+    <div class="dentro topo-dentro">
+      <a class="marca" href="./" aria-label="Família Linu, início">
+        <img src="img/linu-logo.png?v=04939f80" alt="" width="40" height="40">
+        <span>Família Linu</span>
+      </a>
+      <nav class="menu" aria-label="Seções">
+        <button class="luz" type="button" data-tema aria-label="Mudar para o modo escuro" title="Modo escuro">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path class="icone-sol" d="M12 7.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9ZM12 1.5v2.2M12 20.3v2.2M1.5 12h2.2M20.3 12h2.2M4.6 4.6l1.5 1.5M17.9 17.9l1.5 1.5M4.6 19.4l1.5-1.5M17.9 6.1l1.5-1.5" />
+            <path class="icone-lua" d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" />
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="dentro col-abertura" aria-labelledby="t-colonia">
+      <p class="col-selo">Série no Instagram da LinuPedia</p>
+      <h1 id="t-colonia">A Colônia do Linu</h1>
+      <p class="col-sub">Antes de viajar o mundo, o Linu morava numa ponta de pedra na beira da Antártica. Cada pessoa
+        que segue a LinuPedia ganha um pinguim nessa colônia, e a história conta como vivem os pinguins-de-barbicha de
+        verdade: o ninho de pedras, os turnos no ovo, a skua no céu e o krill que está sumindo.</p>
+      <div class="col-cena-caixa">
+        <canvas class="pixel col-cena" width="200" height="140" role="img" aria-label="A colônia em pixel art: uma ponta de pedra na frente da geleira, cheia de pinguins, com o Linu no meio, maior que os outros."></canvas>
+      </div>
+      <p class="col-contagem"><b data-contagem>0</b> pinguins na colônia <span data-contagem-nota></span></p>
+      <p class="col-acoes">
+        <a class="botao" href="#montar">Montar o meu pinguim</a>
+        <a class="botao botao-linha" href="#como">Como funciona</a>
+      </p>
+    </section>
+
+    <section class="secao secao-mar" id="como" aria-labelledby="t-como">
+      <div class="dentro">
+        <h2 id="t-como">Como funciona</h2>
+        <ol class="col-passos">
+          <li><b>Seguir a LinuPedia.</b> A colônia tem um pinguim para cada pessoa que segue. Os pinguins sem nome são
+            quem segue e ainda não montou o seu.</li>
+          <li><b>Montar o seu pinguim.</b> Um apelido, a cor do cachecol e um ofício da colônia. Ele entra no mural e na
+            próxima cena da colônia.</li>
+          <li><b>Dizer nos comentários o que o seu pinguim faz.</b> A cada episódio, alguns entram na história com o
+            apelido.</li>
+        </ol>
+        <p class="secao-sub">Tudo o que acontece com os pinguins na série é coisa que acontece com os pinguins-de-barbicha de
+          verdade, com a fonte no fim de cada episódio. O que é invenção (o Linu, os apelidos, as conversas) é dito como
+          invenção.</p>
+      </div>
+    </section>
+
+    <section class="secao" id="montar" aria-labelledby="t-montar">
+     <div class="dentro">
+      <h2 id="t-montar">Monte o seu pinguim</h2>
+      <div class="col-montar">
+        <div class="col-previa" aria-hidden="true">
+          <canvas class="pixel" width="13" height="12" data-previa></canvas>
+          <p class="col-previa-nome" data-previa-nome>Seu pinguim</p>
+          <p class="col-previa-oficio" data-previa-oficio>Morador(a)</p>
+        </div>
+        <form class="col-form" data-form novalidate>
+          <label class="col-campo">
+            <span>Apelido do pinguim</span>
+            <input name="apelido" maxlength="20" autocomplete="off" required placeholder="Ex.: Tico, Ana do Krill">
+            <small>Até 20 letras. Aparece no mural e pode aparecer num episódio.</small>
+          </label>
+          <fieldset class="col-campo">
+            <legend>Cor do cachecol</legend>
+            <div class="col-cores" data-cores></div>
+          </fieldset>
+          <label class="col-campo">
+            <span>Ofício na colônia</span>
+            <select name="oficio" data-oficios></select>
+          </label>
+          <label class="col-campo">
+            <span>De onde você é (opcional)</span>
+            <input name="lugar" maxlength="30" autocomplete="off" placeholder="Ex.: Recife, Lisboa">
+          </label>
+          <label class="col-campo">
+            <span>Seu @ no Instagram (opcional)</span>
+            <input name="arroba" maxlength="31" autocomplete="off" placeholder="@">
+            <small>Fica público no mural, ao lado do pinguim, para marcar você se ele entrar num episódio.</small>
+          </label>
+          <p class="col-erro" data-erro role="alert" hidden></p>
+          <button class="botao" type="submit">Entrar na colônia</button>
+        </form>
+      </div>
+     </div>
+    </section>
+
+    <section class="secao secao-mar" aria-labelledby="t-mural">
+      <div class="dentro">
+        <h2 id="t-mural">O mural da colônia</h2>
+        <p class="col-aviso">Protótipo: o mural ainda não tem servidor, então os pinguins ficam salvos só neste navegador.</p>
+        <ul class="col-mural" data-mural></ul>
+        <p class="col-vazio" data-vazio>Ninguém por aqui ainda. O primeiro pinguim pode ser o seu.</p>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="t-temporada">
+     <div class="dentro">
+      <h2 id="t-temporada">Temporada 1: A colônia</h2>
+      <ol class="col-episodios">
+        <li><b>A primeira pedra</b><span>O Linu chega à ponta de pedra e começa um ninho.</span></li>
+        <li><b>Dois ovos</b><span>Os turnos de seis dias no ninho.</span></li>
+        <li><b>A sombra no céu</b><span>A skua aparece.</span></li>
+        <li><b>Os guardiões das pedras</b><span>Por que o pinguim-de-barbicha é tão bravo.</span></li>
+        <li><b>Trinta e sete dias</b><span>Os filhotes nascem.</span></li>
+        <li><b>A creche</b><span>Os filhotes juntos, os pais no mar.</span></li>
+        <li><b>Dormir dez mil vezes</b><span>Os cochilos de segundos.</span></li>
+        <li><b>O mar escuro</b><span>A foca-leopardo na saída da colônia.</span></li>
+        <li><b>Onde está o krill?</b><span>O mistério da temporada.</span></li>
+        <li><b>A partida</b><span>O Linu vai conhecer o mundo.</span></li>
+      </ol>
+     </div>
+    </section>
+
+    <section class="secao secao-mar" aria-labelledby="t-misterios">
+      <div class="dentro">
+        <h2 id="t-misterios">O que ainda não se sabe na colônia</h2>
+        <ul class="col-misterios">
+          <li>Quem anda levando as pedras dos ninhos?</li>
+          <li>Por que o krill está ficando cada vez mais longe?</li>
+          <li>O que tem do outro lado da geleira?</li>
+          <li>Para onde o Linu vai quando partir?</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="dentro rodape-dentro">
+      <p><b>Família Linu</b>: o Linu Sites, o Digital Linu, o Linu Seguro, o Linu Farol e a LinuPedia.</p>
+      <nav class="rodape-links" aria-label="A família">
+        <a href="./">O mapa das ilhas</a>
+        <a href="identidade">A identidade</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
