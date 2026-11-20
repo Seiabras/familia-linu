@@ -19,7 +19,7 @@ jobs:
     if: github.event.schedule != '0 10 * * 1'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
       - name: Conferir os sites
         id: vigia
         run: |
@@ -47,7 +47,7 @@ jobs:
     steps:
       - name: Procurar links quebrados
         id: lychee
-        uses: lycheeverse/lychee-action@v2.9.0
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           args: --no-progress --max-concurrency 4 --timeout 20 --accept 200,204,206,301,302,308,429 https://familia.linupedia.com.br/ https://familia.linupedia.com.br/identidade https://sites.linupedia.com.br/ https://digital.linupedia.com.br/ https://seguro.linupedia.com.br/ https://farol.linupedia.com.br/
           output: links.md

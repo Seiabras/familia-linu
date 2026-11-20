@@ -31,4 +31,6 @@ Preparação (uma vez): `bash deploy/ligar-publicacao.sh` no computador faz tudo
 deploy/instalar-uma-vez.sh "<chave pública>"` na VM, a chave privada no segredo
 `ORACLE_SSH_KEY` e a linha da chave da VM no segredo `ORACLE_HOST_KEY` (Settings → Secrets and variables → Actions).
 A linha da VM sai de `echo "168.138.155.95 $(cut -d' ' -f1,2 /etc/ssh/ssh_host_ed25519_key.pub)"`.
+Sem o `ORACLE_HOST_KEY` a publicação para com erro (20/11/2026; antes aceitava a chave de quem respondesse), e as
+Actions ficam fixadas por SHA, para uma etiqueta trocada não rodar código novo com a chave.
 **Para cortar o acesso do GitHub:** apagar `/home/familialinu/.ssh/authorized_keys`.
