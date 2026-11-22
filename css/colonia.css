@@ -1,0 +1,53 @@
+/* A Colônia do Linu (protótipo de 16/11/2026): a página do mural. Usa a base de estilo.css (placas, sombra dura,
+   Pixelify nos títulos) e só acrescenta o que é da colônia. A cena e os pinguins são canvas em pixels inteiros. */
+.col-abertura { padding: 36px 16px 40px; }
+.col-abertura h1 { font-size: clamp(2.1rem, 7vw, 3.6rem); }
+.col-selo { display: inline-block; margin: 0 0 12px; padding: 2px 10px; border: 2px solid var(--borda); background: var(--placa); color: var(--tinta); font: 500 .95rem "Pixelify Sans", sans-serif; box-shadow: 3px 3px 0 var(--sombra); }
+.col-sub { color: var(--tinta-suave); max-width: 64ch; margin: 0 0 24px; }
+.col-cena-caixa { display: flex; justify-content: center; }
+.col-cena { display: block; border: 3px solid var(--borda); box-shadow: 6px 6px 0 var(--sombra); background: #3D8CC6; }
+.col-contagem { text-align: center; margin: 18px 0 0; font: 500 1.15rem "Pixelify Sans", sans-serif; }
+.col-contagem b { font-family: "Nunito", sans-serif; font-weight: 900; color: var(--cor); }
+.col-contagem span { display: block; font: 400 .9rem "Nunito", sans-serif; color: var(--tinta-suave); }
+.col-acoes { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 22px 0 0; }
+
+.col-passos { margin: 0 0 20px; padding-left: 1.4em; display: grid; gap: 12px; max-width: 70ch; }
+.col-passos b { font-weight: 800; }
+
+.col-montar { display: grid; gap: 24px; align-items: start; }
+@media (min-width: 760px) { .col-montar { grid-template-columns: 260px 1fr; } }
+.col-previa { text-align: center; padding: 20px 16px; border: 3px solid var(--borda); background: var(--cartao); box-shadow: 6px 6px 0 var(--sombra); }
+.col-previa canvas { width: 156px; height: 144px; margin: 0 auto; background: #C4E6F6; border: 2px solid var(--borda); }
+.col-previa-nome { margin: 12px 0 0; font: 500 1.3rem "Pixelify Sans", sans-serif; overflow-wrap: anywhere; }
+.col-previa-oficio { margin: 0; color: var(--tinta-suave); }
+
+.col-form { display: grid; gap: 18px; max-width: 560px; }
+.col-campo { display: grid; gap: 6px; margin: 0; padding: 0; border: 0; min-width: 0; }
+.col-campo > span, .col-campo legend { font-weight: 800; padding: 0; }
+.col-campo small { color: var(--tinta-suave); }
+.col-campo input, .col-campo select { min-height: 48px; padding: 8px 12px; border: 3px solid var(--borda); background: var(--cartao); color: var(--tinta); font: inherit; border-radius: 0; }
+.col-cores { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.col-cor { position: relative; width: 48px; height: 48px; border: 3px solid var(--borda); cursor: pointer; box-shadow: 3px 3px 0 var(--sombra); }
+.col-cor input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.col-cor:has(input:checked) { outline: 3px solid var(--azul); outline-offset: 3px; }
+.col-cor:has(input:focus-visible) { outline: 3px dashed var(--azul); outline-offset: 3px; }
+.col-erro { margin: 0; color: #B91C1C; font-weight: 800; }
+:root[data-theme="dark"] .col-erro { color: #FCA5A5; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .col-erro { color: #FCA5A5; } }
+
+.col-aviso { margin: 0 0 18px; padding: 10px 14px; border: 2px dashed var(--borda); background: var(--cartao); color: var(--tinta-suave); }
+.col-mural { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.col-mural li { padding: 14px 10px; text-align: center; border: 3px solid var(--borda); background: var(--cartao); box-shadow: 4px 4px 0 var(--sombra); min-width: 0; }
+.col-mural canvas { width: 78px; height: 72px; margin: 0 auto 8px; }
+.col-mural b { display: block; font: 500 1.05rem "Pixelify Sans", sans-serif; overflow-wrap: anywhere; }
+.col-mural span { display: block; font-size: .9rem; color: var(--tinta-suave); overflow-wrap: anywhere; }
+.col-vazio { color: var(--tinta-suave); }
+
+.col-episodios { margin: 0; padding: 0; list-style: none; counter-reset: ep; display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+.col-episodios li { counter-increment: ep; padding: 12px 14px; border: 3px solid var(--borda); background: var(--cartao); }
+.col-episodios li::before { content: "Episódio " counter(ep); display: block; font: 800 .9rem "Nunito", sans-serif; color: var(--cor); } /* o 5 da Pixelify parece um S */
+.col-episodios b { display: block; font: 500 1.15rem "Pixelify Sans", sans-serif; }
+.col-episodios span { color: var(--tinta-suave); font-size: .95rem; }
+.col-episodios li:not(:first-child) { opacity: .72; }
+
+.col-misterios { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; font-weight: 700; max-width: 60ch; }
